@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<!-- Relies on JQuery Seat-Charts Library https://github.com/mateuszmarkowski/jQuery-Seat-Charts -->
+
+<head>
+  <!-- <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>Assignment 2</title>
+  <link rel="stylesheet" type="text/css" href="main2.css">
+  <!-- <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css"> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <!-- <script src="seatTable.js"></script> -->
+</head>
+
+<body>
+  <!-- Seating using Tables -->
+  <div>
+    <table>
+      <tr>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+      </tr>
+      <tr>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+      </tr>
+      <tr>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+      </tr>
+      <tr>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+      </tr>
+      <tr>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+      </tr>
+      <tr>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+      </tr>
+      <tr>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+      </tr>
+      <tr>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td><div class="seat"></div></td>
+        <td class="walk"></td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    //-------------------------------------------//
+    function seatAdd(id, price, row){
+      this.seatID = id;
+      this.price = price;
+      this.row = row;
+      //this.booked = isBooked;
+    }
+
+    var seatArray = [];
+
+    function display_staff() {
+      var displaytext='';
+	    var table = document.getElementById('dispStaff');
+	    var numRow = 8;
+	    var numCol = 9; //
+	    var sNum=0;
+      for(var i=0; i < numRow ; i++ ){  // create row - <tr>
+        var row = table.insertRow(i);
+        var cells= [];
+        for(var j=0; j < numCol ; j++ ){  // create <td> in the table
+          var cellName ='s'+i +j;
+          cells.push(row.insertCell(j));
+          cells[j].setAttribute('name', cellName);
+          cells[j].innerHTML = '<div class="seat">' +  seatArray[sNum].seatId + '</div>';
+          sNum= sNum+1;
+        }
+      }
+    }
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+	    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.open("GET","rose.xml",false);
+	  xmlhttp.send();
+	  xmlDoc=xmlhttp.responseXML;
+	  var x=xmlDoc.getElementsByTagName("seat");
+
+	  var sName='';
+	  var sPos='';
+	  var sImage='';
+	  for (i=0; i<x.length; i++) {
+		  sID=x[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+		  sRow=x[i].getElementsByTagName("row")[0].childNodes[0].nodeValue;
+		  sPrice=x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue;
+      //sBook=x[i].getElementsByTagName("isBooked")[0].childNodes[0].nodeValue;
+
+		  var addSeat = new seatAdd(sID, sRow, sPrice);
+		  seatArray[i] = addSeat;
+	  }
+  </script>
+  <button type="button" onclick="display_staff()">display staff</button>
+  <table border="0" id="dispStaff"></table>
+  <div id="bookingDetails">
+
+  </div>
+</body>
+
+</html>
