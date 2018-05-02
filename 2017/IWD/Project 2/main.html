@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<!-- TODO 
+✓ item image
+✓ character image
+try character image animation
+✓ background image
+sound effects
+✓ 7 minute timer
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CanvasGame</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            body {
+                background-color: lightgray;
+            }
+            .game_menu {
+                float: left;
+                display: inline-block;
+                margin-left: 30px;
+                margin-right: 10px;
+                margin-top: 30px;
+                padding: 10px;
+            }
+            .canvasDiv{
+                float: left;
+                margin-top: 10px;
+                border: 5px;
+                border-radius: 10px;
+                border-color: black;
+            }
+            .timer {
+                text-align: center;
+            }
+            .button {
+                padding: 5px;
+                margin-left: 130px;
+                cursor: pointer;
+            }
+            .button2 {
+                padding: 5px;
+                margin-left: 110px;
+                margin-right: -100px;
+                cursor: pointer;
+            }
+            #canvas {
+                background-image: url("images/bg.png");   
+            }
+        </style>
+    </head>
+    <body>
+        <div class="game_menu">
+            <h3>Canvas Game!</h3>
+            <hr>
+            <h4>Objective:</h4>
+            <br>
+            <h4><i>Help Mr.X Collect the falling Oranges in 7 Minutes</i></h4>
+            <br><br>
+            <div class="timer">
+                <b>Time Left: </b><span id="timer"></span>
+                <br>
+                <b>Score: </b><span id="score"></span>                
+            </div>
+            <br><br>
+            <button type="button" class="button" id="start">Start Game</button>
+            <br>
+            <br>
+            <button type="button" class="button2" id="mute">Mute</button>
+            <button type="button" class="button2" id="unmute">Unmute</button>
+        </div>
+        <div class="canvasDiv" >
+            <canvas id="canvas" width=800 height=550>
+                Sorry, your browser does not support HTML5 Canvas. Please install Google Chrome, and try again.
+            </canvas>
+            <script type="text/javascript" src="game.js"></script>
+        </div>
+    </body>
+</html>

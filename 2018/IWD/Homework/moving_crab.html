@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Moving Crab</title>
+  <style>
+    .mybackground {
+      position: relative;
+      background-image: url("src/under-water.jpg");
+      width: 960px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .mybackground .crab {
+      position: absolute;
+      background-image: url(src/crab.gif);
+      background-repeat: no-repeat;
+      width: 225px;
+      height: 150px;
+      top: 400px;
+      left: 550px;
+    }
+
+    .myButton {
+      background-color: #69ACE2;
+      width: 90px;
+      height: 30px;
+      border: 5px solid blue;
+    }
+  </style>
+
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <div class="mybackground">
+    <div class="myButton" id="start" onclick="move()">Move Crab</div><br />
+    <div style="left: 658px; top: 300px;" class="crab" id="mycrab"></div>
+  </div>
+
+  <script>
+    function move() {
+      var elem = document.getElementById("mycrab");
+      var left = 550;
+      var top = 400;
+      var point = 0;
+
+      function doMove() {
+        if (left == 150) {
+          point = 1;
+        } else {
+          top = top;
+          left = left;
+          left--;
+          elem.style.left = left + 'px';
+          elem.style.top = top + 'px';
+        }
+        if (point == 1) {
+          if (top == 150) {
+            point = 2;
+          } else {
+            top--;
+            elem.style.top = top + 'px';
+          }
+        }
+        <!--//TODO: Broken, not sure why...
+        //Note: Stops moving after reach top 150 and move like a frame then stops -->
+        if (point == 2) {
+          left++
+          elem.style.left = left + 'px';
+        }
+      }
+
+      var id = setInterval(doMove, 5);
+    }
+  </script>
+
+</body>
+
+</html>

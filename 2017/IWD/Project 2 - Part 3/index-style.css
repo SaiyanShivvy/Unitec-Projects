@@ -1,0 +1,112 @@
+#create {
+    margin-top: 10px;
+    display: block;
+}
+
+#control {
+    padding: 1
+}
+
+.title {
+    text-align: center;
+    
+}
+
+.footer{
+    margin-top: 20px;
+    text-align: center;    
+}
+
+.container {
+    width: 600px;
+    padding: 15px 5px;
+    margin-top: 15px;
+    float: left;
+    position: absolute;
+    top: 100px;
+    left: 620px;
+    text-align: center;
+}
+
+.tab-folder {
+    margin-top: 20px;
+}
+
+.canvas-container {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.canvasColor {
+    margin-top: 15px;
+    margin-left: 30px;
+    top: 0;
+}
+
+.btnHead {
+    background-color: #4CAF50; /* Green .*/
+    border: none;
+    color: white;
+    width: 90px;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btnHead a {
+    text-decoration: none;
+}
+
+.btnH {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+
+.btn-group .btnC {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    float: left;
+}
+
+.btn-group .btnC :hover {
+    background-color: #3e8e41;
+}
+
+.btn-group .btnD {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    float: left;
+}
+
+.btn-group .btnD :hover {
+    background-color: #3e8e41;
+}
+
+.tab-folder > .tab-content:target ~ .tab-content:last-child, .tab-folder > .tab-content {
+    display: none;
+}
+.tab-folder > :last-child, .tab-folder > .tab-content:target {
+    display: inline-block;
+}

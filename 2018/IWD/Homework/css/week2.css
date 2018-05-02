@@ -1,0 +1,84 @@
+/*Week 2 CSS*/
+
+/* GLOBAL STYLES */
+body {
+    background: #F7F4F3;
+    padding-top: 5em;
+
+}
+
+#main_wrapper {
+/*    background: linear-gradient(#405166, #656f6f);*/
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-content: flex-end;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+#sbText {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-content: flex-end;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.storyboardW2 {
+    font-family: monospace;
+    color: #293132;
+}
+
+#sbImage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-content: flex-end;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+#sbImage img {
+
+}
+
+.animationW2 h1 {
+    color: #293132;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .12em; /* Adjust as needed */
+    -webkit-animation:
+        typing 3.5s steps(30, end),
+        blink-caret .5s step-end infinite;
+    animation:
+        typing 3.5s steps(30, end),
+        blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@-webkit-keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@-webkit-keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+}

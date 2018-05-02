@@ -1,0 +1,929 @@
+/*Main CSS - Layout using Flexbox*/
+
+/* Import for Vodafone Font*/
+@font-face {
+font-family: 'Vodafone';
+src: url('Vodafone.ttf') format('truetype');
+}
+/* END OF IMPORT*/
+
+html {
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+}
+
+body {
+  background: #f7f7f7;
+  min-height: 100%;
+}
+
+.flex-container {
+  -webkit-flex-flow: row wrap;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+.flex-container>* {
+  -webkit-flex: 1 100%;
+  flex: 1 100%;
+  padding: 15px;
+}
+
+.article {
+  border-color: black;
+  border-style: solid;
+  text-align: left;
+}
+
+aside {
+  flex: 0 0 20vw;
+}
+
+header {
+  color: white;
+  margin: 0 auto;
+}
+
+footer {
+  background: #484A47;
+  bottom: 0;
+  color: white;
+  display: block;
+  height: 150px;
+  text-align-last: center;
+  width: 99%;
+}
+
+@media all and (min-width: 768px) {
+  .article {
+    -webkit-flex: 5 0;
+    -webkit-order: 2;
+    flex: 5 0;
+    order: 2;
+  }
+  footer {
+    -webkit-order: 3;
+    order: 3;
+  }
+}
+
+.main {
+  margin: 10px;
+  width: 71.5%;
+}
+
+/* Nav Menu */
+
+ul {
+  background-color: #484a47;
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  color: white;
+  display: block;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ec4e20;
+}
+
+.active {
+  background-color: #ec4e20;
+}
+
+/* Content*/
+
+.ifr {
+  bottom: 0;
+  height: 1000px;
+  margin: 0;
+  min-height: 100%;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.sideBanner {
+  float: right;
+  margin: 0;
+  margin-right: 1em;
+  padding: 0;
+  position: relative;
+  top: -60em;
+}
+/* CSS Animations */
+
+/* Tongariro National Park*/
+
+.tna_banner {
+  background-color: black;
+  border-color: black;
+  border-style: solid;
+  height: 420px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 44.4vw;
+}
+
+.logo {
+  animation-duration: 1.5s;
+  height: 6em;
+  left: 0.5em;
+  position: absolute;
+  top: 0.5em;
+  transform: rotate(-10deg);
+  z-index: 2;
+}
+
+.ngu {
+  animation-delay: 0.15s;
+  left: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.rpe {
+  animation-delay: 0.75s;
+  left: 14.8vw;
+  position: absolute;
+  z-index: 0;
+}
+
+.tgo {
+  animation-delay: 1.35s;
+  left: 29.65vw;
+  position: absolute;
+  z-index: 0;
+}
+
+.aHike {
+  animation-delay: 4.15s;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.aSnow {
+  animation-delay: 4.75s;
+  left: 14.8vw;
+  position: absolute;
+  z-index: 1;
+}
+
+.aRapids {
+  animation-delay: 5.35s;
+  left: 29.65vw;
+  position: absolute;
+  z-index: 1;
+}
+
+.ngu_text {
+  animation-delay: 0.2s;
+  font-size: 20px;
+  font-weight: bold;
+  left: 1em;
+  position: absolute;
+  top: 18em;
+  z-index: 0;
+}
+.rpe_text {
+  animation-delay: 0.8s;
+  font-size: 20px;
+  font-weight: bold;
+  left: 16em;
+  position: absolute;
+  top: 18em;
+  z-index: 0;
+}
+.tgo_text {
+  animation-delay: 1.4s;
+  font-size: 20px;
+  font-weight: bold;
+  left: 30em;
+  position: absolute;
+  top: 18em;
+  z-index: 0;
+}
+.aHike_text {
+  animation-delay: 4.2s;
+  font-size: 20px;
+  font-weight: bold;
+  left: 1em;
+  position: absolute;
+  top: 18em;
+  z-index: 1;
+}
+.aSnow_text {
+  animation-delay: 4.8s;
+  font-size: 20px;
+  font-weight: bold;
+  left: 16em;
+  position: absolute;
+  top: 18em;
+  z-index: 1;
+}
+.aRapids_text {
+  animation-delay: 5.3s;
+  font-size: 20px;
+  font-weight: bold;
+  left: 30em;
+  position: absolute;
+  top: 18em;
+  z-index: 1;
+}
+
+.aniP2 {
+  animation-delay: 8s;
+  background-color: green;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+}
+
+.logo2 {
+  animation-delay: 9s;
+  animation-duration: 1.5s;
+  height: 6em;
+  left: 22em;
+  position: absolute;
+  top: 0.5em;
+  transform: rotate(-10deg);
+  z-index: 4;
+}
+
+.moreInfo {
+  animation-delay: 9.5s;
+  background-color: white;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: none;
+  height: 1.5vw;
+  left: 17.5vw;
+  position: absolute;
+  text-decoration: none;
+  top: 10vw;
+  width: 9vw;
+  z-index: 4;
+}
+
+.authordiv {
+  animation-delay: 10s;
+  position: relative;
+  z-index: 4;
+}
+
+.author {
+  animation-delay: 10.5s;
+  left: 17.3vw;
+  position: absolute;
+  top: 15vw;
+  z-index: 4;
+}
+
+/* Vodafone Ad*/
+.vfB {
+  border-color: black;
+  border-style: solid;
+  color: white;
+  font-family: 'Vodafone';
+  height: 44vw;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 22vw;
+}
+
+.vf-bg-asset {
+  position: absolute;
+}
+
+.vf-line-com {
+  animation-delay: 0.15s;
+  left: 7vw;
+  opacity: 0.2;
+  position: absolute;
+  top: 9vw;
+  z-index: 0;
+}
+
+.vf-line-inc {
+  animation-delay: 4s;
+  left: 7.5vw;
+  position: absolute;
+  top: 9vw;
+  z-index: 1;
+}
+
+.vf-circle {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 7s, 10s;
+  animation-fill-mode: forwards;
+  left: 1.5vw;
+  opacity: 0;
+  position: absolute;
+  top: 8vw;
+  z-index: 1;
+}
+
+.vf-social {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 7s, 10s;
+  animation-fill-mode: forwards;
+  height: 10%;
+  left: 7vw;
+  opacity: 0;
+  position: absolute;
+  top: 15vw;
+  z-index: 1;
+}
+
+.vf-text-line-1 {
+  animation: fadeIn 2s,fadeOut 1s;
+  animation-delay: 0s, 4s;
+  animation-fill-mode: forwards;
+  font-size: 48px;
+  font-weight: bold;
+  left: 4vw;
+  position: absolute;
+  top: 14vw;
+  z-index: 2;
+}
+.vf-text-line-2 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 0s, 4s;
+  animation-fill-mode: forwards;
+  font-size: 48px;
+  font-weight: bold;
+  left: 4vw;
+  position: absolute;
+  top: 16vw;
+  z-index: 2;
+}
+.vf-text-line-3 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 4.5s, 7s;
+  animation-fill-mode: forwards;
+  font-size: 48px;
+  font-weight: bold;
+  left: 2vw;
+  opacity: 0;
+  position: absolute;
+  top: 10vw;
+  z-index: 2;
+}
+.vf-text-line-4 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 4.5s, 7s;
+  animation-fill-mode: forwards;
+  font-size: 48px;
+  font-weight: bold;
+  left: 1.9vw;
+  opacity: 0;
+  position: absolute;
+  top: 12.5vw;
+  z-index: 2;
+}
+.vf-text-line-5 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 4.5s, 7s;
+  animation-fill-mode: forwards;
+  font-size: 48px;
+  font-weight: bold;
+  left: 2vw;
+  opacity: 0;
+  position: absolute;
+  top: 14.8vw;
+  z-index: 2;
+}
+.vf-text-line-6 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 4.5s, 7s;
+  animation-fill-mode: forwards;
+  font-size: 48px;
+  font-weight: bold;
+  left: 2.3vw;
+  opacity: 0;
+  position: absolute;
+  top: 16.8vw;
+  z-index: 2;
+}
+.vf-text-line-7 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 7s, 10s;
+  animation-fill-mode: forwards;
+  font-size: 36px;
+  font-weight: bold;
+  left: 6vw;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 8vw;
+  z-index: 2;
+}
+.vf-text-line-8 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 7s, 10s;
+  animation-fill-mode: forwards;
+  font-size: 30px;
+  font-weight: bold;
+  left: 7.5vw;
+  opacity: 0;
+  position: absolute;
+  top: 18vw;
+  z-index: 2;
+}
+.vf-text-line-9 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 7s, 10s;
+  animation-fill-mode: forwards;
+  font-size: 18px;
+  left: 7.5vw;
+  opacity: 0;
+  position: absolute;
+  top: 20.5vw;
+  z-index: 2;
+}
+.vf-text-line-10 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 7s, 10s;
+  animation-fill-mode: forwards;
+  font-size: 18px;
+  left: 7.9vw;
+  opacity: 0;
+  position: absolute;
+  top: 21.5vw;
+  z-index: 2;
+}
+.vf-text-line-11 {
+  animation: fadeIn 2s, fadeOut 1s;
+  animation-delay: 7s, 10s;
+  animation-fill-mode: forwards;
+  font-size: 18px;
+  left: 9vw;
+  opacity: 0;
+  position: absolute;
+  top: 22.5vw;
+  z-index: 2;
+}
+.vf-text-line-12 {
+  animation: fadeIn 2s;
+  animation-delay: 10s;
+  animation-fill-mode: forwards;
+  font-size: 72px;
+  font-weight: bold;
+  left: 2vw;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 2vw;
+  z-index: 2;
+}
+.vf-text-line-13 {
+  animation: fadeIn 2s;
+  animation-delay: 10.5s;
+  animation-fill-mode: forwards;
+  font-size: 68px;
+  font-weight: bold;
+  left: 2vw;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 6vw;
+  z-index: 2;
+}
+.vf-text-line-14 {
+  animation: fadeIn 2s;
+  animation-delay: 11s;
+  animation-fill-mode: forwards;
+  font-size: 20px;
+  font-weight: bold;
+  left: 2vw;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 13vw;
+  z-index: 2;
+}
+.vf-text-line-15 {
+  animation: fadeIn 2s;
+  animation-delay: 11s;
+  animation-fill-mode: forwards;
+  font-size: 20px;
+  font-weight: bold;
+  left: 2vw;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 14vw;
+  z-index: 2;
+}
+.vf-text-line-16 {
+  animation: fadeIn 2s;
+  animation-delay: 11s;
+  animation-fill-mode: forwards;
+  font-size: 20px;
+  font-weight: bold;
+  left: 2vw;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 15vw;
+  z-index: 2;
+}
+
+.moreInfo-2 {
+  animation-delay: 12s;
+  background-color: white;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: none;
+  height: 1.5vw;
+  left: 2vw;
+  position: absolute;
+    text-decoration: none;
+  top: 19vw;
+  width: 10vw;
+  z-index: 2;
+}
+
+.authordiv-2 {
+  animation-delay: 13s;
+  position: relative;
+  z-index: 2;
+}
+
+.author-2 {
+  animation-delay: 13.5s;
+  font-size: 22px;
+  left: 2.1vw;
+  position: absolute;
+  top: 21vw;
+  z-index: 2;
+}
+
+/* List of Animations */
+
+.animated {
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+@-webkit-keyframes zoomIn {
+  from {
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+@-webkit-keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.tada {
+  -webkit-animation-name: tada;
+  animation-name: tada;
+}

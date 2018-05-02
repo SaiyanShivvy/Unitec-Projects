@@ -1,0 +1,17 @@
+.seat {
+  background-color: white;
+  border: 1px solid gray;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+
+.walk {
+  padding-left: 20px;
+}
+
+#driver {
+  background-color: gray;
+  border-radius: 50%;
+  height: 20px;
+}

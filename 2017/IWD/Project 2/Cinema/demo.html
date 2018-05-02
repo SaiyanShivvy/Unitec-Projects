@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>demo</title>
+		<style>
+		.test{
+			height: 10px;
+			width:10px;
+			border: solid red 1px;
+			position:absolute;
+			}	
+
+		</style>
+	</head>
+	<body>
+	<body>
+	
+		<script>
+			var xA = [30,50, 100,150];
+			var yA =[30,60,120,240];
+			var a = ['a','b','c','d'] ;
+			function test(){			
+				for (var i = 0; i < xA.length; i++){
+					var newdiv = document.createElement("div");
+					newdiv.className = "test";
+					var id = a[i];
+					newdiv.id = id;
+					document.body.appendChild(newdiv);
+					var div = document.getElementById(id);
+
+					}
+				
+			}
+		</script>
+		<button onclick="test()">Test</button>
+	</body>
+</html>

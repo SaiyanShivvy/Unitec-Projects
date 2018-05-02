@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<title>Project 2-Index</title>
+		<link rel="stylesheet" type="text/css" href="Cinema.css">
+	</head>
+	<body>
+	<!-- src="Cinema.js" -->
+		<script >
+		
+
+		
+			function test(){
+
+				
+				
+				
+				
+				
+				
+				
+				
+					
+					<!-- var a = 150; -->
+<!-- 					var y = [50,240,450]; -->
+					<!-- var b = ['a','b','c','d'] ; -->
+					
+					
+					
+					
+					
+					
+					
+					var cinemaDoc;
+					var cinemaXMLHttp;
+					var cinemaXMLHttp = new XMLHttpRequest();
+					cinemaXMLHttp.onreadystatechange = function(){
+						if (this.readyState == 4 && this.status == 200){
+							seatTest(this);
+						}
+					}
+					
+					
+					cinemaDoc= cinemaXMLHttp.responseXML;
+					
+					cinemaXMLHttp.open("GET", "Cinema_FR.xml", true);
+					cinemaXMLHttp.send();
+				<!-- its breaks right here i cant get the xml to read it keeps saying its null -->
+				<!-- if i could have got it working then i would have set up divs dynamically adding  -->
+				<!-- i made a little demo to do that here and got the divs addign at least but couldt then poplulate arrays  -->
+				<!-- from reading an xml file. i would have used those values to set the divs positions  -->
+
+					x = cinemaDoc.getElementsByTagName("id");
+			
+					<!-- var currentSeatID = ''; -->
+					<!-- var currentSeatBooking = ''; -->
+					<!-- var currentSeatRow = 0; -->
+
+			<!-- 	for (var i = 0; i < y.length; i++){ -->
+					var newdiv = document.createElement("div");
+					newdiv.className = "test";
+					document.body.appendChild(newdiv);
+					<!-- } -->
+				}
+				
+			function seatTest
+		</script>
+		<div id="cinemaNav">
+			<div id="innerCinemaNav">
+				<button class="cinemaNavButton" onclick="test()">Florence Room</button>
+				<button class="cinemaNavButton" onclick="ronaldRoom()">Ronald Room</button>
+			</div> 
+		<div>	
+		<div id="floorSpace">
+			<button class="cinemaBackBtn" onclick="cinemaBack()">Back</button>
+			<button class="cinemaBookBtn" onclick="cinemaBook()">Book</button>			
+		</div>
+	</body>
+</html>
