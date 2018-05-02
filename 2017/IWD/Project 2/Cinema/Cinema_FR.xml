@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		<cinemaRoom>
+			<roomRow>
+				<rowSeat>
+					<id>a</id>
+					<booking>booked</booking>
+					
+				</rowSeat>
+				<rowSeat>
+					<id>b</id>
+					<booking>free</booking>
+					
+				</rowSeat>
+				<rowSeat>
+					<id>c</id>
+					<booking>free</booking>
+				
+				</rowSeat>				
+			</roomRow>
+		</cinemaRoom>

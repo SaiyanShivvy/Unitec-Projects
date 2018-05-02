@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Part 3 | E-Card Generator</title>
+    <link rel="stylesheet" type="text/css" href="index-style.css" />
+    <script src="fabric.min.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="canvas-toBlob.js"></script>
+    <script src="FileSaver.min.js"></script>
+</head>
+
+<body style="background-color: lightgray">
+    <div class="title">
+        <header>
+            <h1>E-Card Generator</h1>
+        </header>
+    </div>
+    <div class="canvas-container">
+        <canvas id="canvas" width="600" height="400" style="border:1px solid #000000;"></canvas>
+        <label for="canvasColor">Change Canvas Background Colour: </label>
+        <input type="color" id="canvasColor" onchange="canvasColor()" style="margin-top: 15px;">
+        <!-- Creates a fabricjs canvs -->
+        <script>
+            var canvas = new fabric.Canvas('canvas');
+
+            function canvasColor() {
+                var color = document.getElementById("canvasColor").value;
+                canvas.backgroundColor = color;
+                canvas.renderAll();
+            }
+        </script>
+    </div>
+    <div class="container">
+        <div class="tabs">
+            <a href="#shapes"><button class="btnHead btnH">Shapes</button></a>
+            <a href="#text"><button class="btnHead btnH">Text</button></a>
+            <a href="#images"><button class="btnHead btnH">Images</button></a>
+            <a href="#export"><button class="btnHead btnH">Export</button></a>
+            <button class="btnHead btnH" onclick="clearCanvas()">Clear</button>
+            <!-- Script, Cause I don't know how to call it from an external js file -->
+            <script>
+                function clearCanvas() {
+                    canvas.clear();
+                }
+            </script>
+        </div>
+        <div class="tab-folder">
+            <!-- Shapes Tab -->
+            <div id="shapes" class="tab-content">
+                <!-- Shapes -->
+                <div class="btn-group">
+                    <button class="btnC" onclick="circle()">Circle</button>
+                    <button class="btnC" onclick="square()">Square</button>
+                    <button class="btnC" onclick="triangle()">Triangle</button>
+                    <button class="btnC" onclick="star()">Star</button>
+                    <button class="btnC" onclick="oval()">Oval</button>
+                    <button class="btnC" onclick="pentagon()">Pentagon</button>
+                </div>
+                <!-- Break -->
+                <br><br>
+                <!-- Controls -->
+                <label for="colorWell">Change Colour</label>
+                <input type="color" id="shapeColor">
+                <div class="btn-group">
+                    <button class="btnD" onclick="handleRemove()">Remove</button>
+                </div>
+                <!-- Scripts -->
+                <script>
+                    document.getElementById("shapeColor").addEventListener('change', function(e) {
+                        var obj = canvas.getActiveObject();
+                        var color = document.getElementById("shapeColor").value;
+
+                        if (!obj) return;
+
+                        obj.set("fill", color);
+                        canvas.renderAll();
+                    });
+
+                    function circle() {
+                        var circle = new fabric.Circle({
+                            radius: 40,
+                            fill: 'green',
+                        });
+                        canvas.add(circle);
+                    }
+
+                    function square() {
+                        var rect = new fabric.Rect({
+                            fill: 'red',
+                            width: 40,
+                            height: 40
+                        });
+                        canvas.add(rect);
+                    }
+
+                    function triangle() {
+                        var triangle = new fabric.Triangle({
+                            width: 40,
+                            height: 50,
+                            fill: 'blue',
+                        });
+                        canvas.add(triangle);
+                    }
+
+                    function star() {
+                        var points = starPolygonPoints(5, 50, 25);
+
+                        function starPolygonPoints(spikeCount, outerRadius, innerRadius) {
+                            var rot = Math.PI / 2 * 3;
+                            var cx = outerRadius;
+                            var cy = outerRadius;
+                            var sweep = Math.PI / spikeCount;
+                            var points = [];
+                            var angle = 0;
+                            for (var i = 0; i < spikeCount; i++) {
+                                var x = cx + Math.cos(angle) * outerRadius;
+                                var y = cy + Math.sin(angle) * outerRadius;
+                                points.push({
+                                    x: x,
+                                    y: y
+                                });
+                                angle += sweep;
+                                x = cx + Math.cos(angle) * innerRadius;
+                                y = cy + Math.sin(angle) * innerRadius;
+                                points.push({
+                                    x: x,
+                                    y: y
+                                });
+                                angle += sweep
+                            }
+                            return (points);
+                        }
+                        var star = new fabric.Polygon(points, {
+                            fill: 'yellow',
+                            left: 50,
+                            top: 50,
+                            strokeLineJoin: 'bevil'
+                        }, false);
+                        canvas.add(star);
+                    }
+
+                    function oval() {
+                        var oval = new fabric.Ellipse({
+                            fill: 'orange',
+                            rx: 20,
+                            ry: 25
+                        });
+                        canvas.add(oval);
+                        /* Fix this */
+                    }
+
+                    function pentagon() {
+                        var points = regularPolygonPoints(5, 30);
+
+                        function regularPolygonPoints(sideCount, radius) {
+                            var sweep = Math.PI * 2 / sideCount;
+                            var cx = radius;
+                            var cy = radius;
+                            var points = [];
+                            for (var i = 0; i < sideCount; i++) {
+                                var x = cx + radius * Math.cos(i * sweep);
+                                var y = cy + radius * Math.sin(i * sweep);
+                                points.push({
+                                    x: x,
+                                    y: y
+                                });
+                            }
+                            return (points);
+                        }
+                        var pentagon = new fabric.Polygon(points, {
+                            fill: 'pink',
+                            left: 50,
+                            top: 50,
+                            strokeWidth: 2,
+                            strokeLineJoin: 'bevil'
+                        }, false);
+                        canvas.add(pentagon);
+                    }
+                </script>
+            </div>
+            <!-- Text Tab -->
+            <div id="text" class="tab-content">
+                <label for="custom-text">Enter Text: </label>
+                <br>
+                <textarea id="custom-text" rows="5"></textarea>
+                <!-- Break -->
+                <br><br>
+                <!-- Break -->
+                <div class="btn-group">
+                    <button class="btnC" onclick="addText()">Add Text</button>
+                </div>
+                <!-- Break -->
+                <br><br><br>
+                <!-- Controls -->
+                <label for="font-control">Change Font: </label>
+                <select id="font-control" name="font-control">
+                        <option value="Arial">Arial</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Times New Roman">Times</option>
+                    </select>
+                <!-- Break -->
+                <br><br>
+                <label for="font-size">Change Font Size</label>
+                <input type="range" id="font-size" value="10" min="10" max="32">
+                <!-- Break -->
+                <br><br>
+                <label for="text-color">Change Text Color</label>
+                <input type="color" id="text-color">
+                <!-- Break -->
+                <br><br>
+                <div class="btn-group">
+                    <button class="btnD" onclick="handleRemove()">Remove</button>
+                </div>
+                <script>
+                    function addText() {
+                        var cText = document.getElementById("custom-text").value;
+                        var textC = new fabric.Text(cText);
+                        canvas.add(textC);
+                    }
+
+                    document.getElementById("custom-text").addEventListener('change', function(e) {
+                        var obj = canvas.getActiveObject();
+
+                        if (!obj) return;
+
+                        obj.setText(e.target.value);
+                        canvas.renderAll();
+                    });
+
+                    document.getElementById("font-size").addEventListener('change', function(e) {
+                        var obj = canvas.getActiveObject();
+                        var cSize = document.getElementById("font-size").value;
+
+                        if (!obj) return;
+
+                        obj.set("fontSize", cSize);
+                        canvas.renderAll();
+                    });
+
+                    document.getElementById("font-control").addEventListener('change', function(e) {
+                        var obj = canvas.getActiveObject();
+                        var fFamily = document.getElementById("font-control").value;
+
+                        if (!obj) return;
+
+                        obj.set("fontFamily", fFamily);
+                        canvas.renderAll();
+                    });
+
+                    document.getElementById("text-color").addEventListener('change', function(e) {
+                        var obj = canvas.getActiveObject();
+                        var tColor = document.getElementById("text-color").value;
+
+                        if (!obj) return;
+
+                        obj.set("textBackgroundColor", tColor);
+                        canvas.renderAll();
+                    });
+                </script>
+            </div>
+            <!-- Images Tab -->
+            <div id="images" class="tab-content">
+                <div class="btn-group">
+                    <label for="file">Choose an Image</label>
+                    <input type="file" id="file">
+                </div>
+                <!-- Break -->
+                <br><br>
+                <!-- Controls -->
+                <div class="btn-group">
+                    <button class="btnD" onclick="handleRemove()">Remove</button>
+                </div>
+                <script>
+                    document.getElementById('file').addEventListener("change", function(e) {
+                        var file = e.target.files[0];
+                        var reader = new FileReader();
+                        reader.onload = function(f) {
+                            var data = f.target.result;
+                            fabric.Image.fromURL(data, function(img) {
+                                var oImg = img.set({
+                                    left: 0,
+                                    top: 0,
+                                    angle: 00
+                                }).scale(0.9);
+                                canvas.add(oImg).renderAll();
+                                var a = canvas.setActiveObject(oImg);
+                                var dataURL = canvas.toDataURL({
+                                    format: 'png',
+                                    quality: 1.0
+                                });
+                            });
+                        };
+                        reader.readAsDataURL(file);
+                    });
+
+                    function handleRemove() {
+                        canvas.remove(canvas.getActiveObject());
+                    }
+                </script>
+            </div>
+            <!-- Export Tab -->
+            <div id="export" class="tab-content">
+                <div class="btn-group">
+                    <button class="btnC" id="export">Export as Image</button>
+                </div>
+                <script>
+                    $("#export").click(function() {
+                        canvas.deactivateAll().renderAll();
+                        $("#canvas").get(0).toBlob(function(blob) {
+                            saveAs(blob, "myIMG.png");
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="footer">
+    <p>Created by: Shivneel Achari</p>
+</footer>
+
+</html>
