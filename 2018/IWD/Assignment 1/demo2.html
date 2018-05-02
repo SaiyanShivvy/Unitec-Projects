@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 DOM Range Object</title>
+  <link rel="stylesheet" href="add-style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Lato');
+  </style>
+  <script>
+  var slider;
+
+  window.addEventListener('input', function() {
+    slider = document.getElementById("slider").value;
+      document.getElementById("demoText").style.fontSize = slider + "px"
+  }, false);
+  </script>
+</head>
+
+<body>
+  <div id="ex">
+    <h3>HTML DOM Range Object</h3>
+    <h4>HTML - Setup</h4>
+    <p>First we need to create an <code>&lt;input&gt;</code> with the type<code>"range"</code>and with an ID <code>"slider"</code>.
+    <br>For this example, I am using an ID <code>"demoText"</code> for the paragraph as I am only wanting to change the font-size of a certain <code>&lt;p&gt;</code>.</p>
+    <pre>
+      <code>&lt;input type="range" min="10" max="48" value="14" id="slider"/&gt;    </code>
+    </pre>
+    <p>We can also give the <code>&lt;input&gt;</code> a <code>"min"</code> & <code>"max"</code> value, otherwise by default it would be 0 to 100. We can also specify a <code>"value"</code> this is the default value of the <code>"range"</code> object.
+    </p>
+    <h4>JavaScript - Setup</h4>
+    <p>First, we need to establish some variables.
+      <br>The <code>load</code> handler will do the main setup once the page is fully loaded. In this example we are also specifying the default value for the <code>&lt;input&gt;</code>.
+      <br>
+      These will go in a <code>&lt;script&gt;</code> tag, for this example.</p>
+    <pre>
+      <code>var slider;                                      </code>
+    </pre>
+    <p> When the <code>&lt;input&gt;</code> receives an input, the <code>function</code> will trigger.
+      <br> The code inside the function get the <code>"value"</code> and assigns it to a <code>var</code> called <code>slider</code> and takes that and sets it to the <code>&lt;p&gt;</code> tags <code>style.fontSize</code>. The <code>+ "px"</code> is to specify the units, which in the case of fontSize in this example is pixels.
+    </p>
+    <pre>
+      <code>window.addEventListener('input', function() {                            </code>
+      <code> slider = document.getElementById("slider").value;                 </code>
+      <code> document.getElementById("demoText").style.fontSize = slider + "px"</code>
+      <code> }, false);                                                          </code>
+    </pre>
+    <p></p>
+  </div>
+  <br />
+  <div id="demo">
+    <h3>Demo</h3>
+    <input type="range" min="10" max="48" value="14" id="slider"/>
+
+    <p id="demoText"><b>Hello</b>, As we change see from this demo, when the range slider is moved, the font-size of this paragraph changes correspoding to the value of the slider.</p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <title>Week 3 - JS Object</title>
+  <style>
+  body{
+    text-align: center;
+  }
+
+  html{
+    font-family: 'Lato', sans-serif;
+  }
+
+  </style>
+</head>
+
+<body>
+  <script>
+    //defines the object
+    function product(itemName, price) {
+      this.itemName = itemName;
+      this.price = price;
+    }
+    //creates instances of the object
+    var productA = new product("Milk", 5);
+    var productB = new product("Bread", 3);
+    var productC = new product("Eggs", 6);
+    //Adds the product instances to array
+    var productList = [productA, productB, productC];
+
+    //Displays the products
+    function display_product() {
+      var displaytext = "<b>List of Products </b>" + "<br/>";
+
+      for (var i = 0; i < productList.length; i++) {
+        displaytext = displaytext + "<br/ > " + productList[i].itemName;
+        displaytext = displaytext + '; Price: ' + '$' + productList[i].price;
+      }
+      document.getElementById("disp").innerHTML = displaytext;
+    }
+    //adds a custom user product
+    function add_product() {
+      if (document.getElementById("nItemName").value == "") {
+        alert("Please Fill in the Name field");
+      } else if (document.getElementById("nPrice").value == "") {
+        alert("Please Fill in the Price field");
+      } else {
+        var productAdd = new product(document.getElementById("nItemName").value, document.getElementById("nPrice").value);
+        productList.push(productAdd);
+        var nn = productList.length;
+      }
+    }
+  </script>
+
+  <!-- //adds a new product using data entered -->
+  <table border="0" width="350px" align="center">
+    <tbody>
+      <tr>
+        <td style="text-align: right;"><label for="nItemName">Product Name</label></td>
+        <td><input id="nItemName" type="text"></td>
+      </tr>
+      <tr>
+        <td style="text-align: right;"><label for="nPrice">Price</label></td>
+        <td><input id="nPrice" type="number"></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- //button to add an item -->
+  <button onclick="add_product()">Add Product</button>
+  <!-- //button to display products -->
+  <button onclick="display_product()">Display Products</button>
+  <p id="disp"></p>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>IWD Project</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Lato');
+  </style>
+  <script>
+    function reset() {
+      location.reload(); //resets the entire page, including animation.
+    }
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <!-- Header / Top Banner-->
+    <header>
+      <!-- PAGE 2 ASSETS -->
+      <div id="tna_banner" class="tna_banner">
+        <div  class="aniP2 animated fadeInDown">
+        </div>
+        <img class="logo2 animated fadeIn" src="src/p1ani/tongariro-logo.png" />
+        <button class="moreInfo animated zoomIn" onclick="location.href='http://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/tongariro-national-park/'">Find Out More</button>
+
+        <div class="authordiv animated fadeIn">
+          <p class="author animated infinite pulse">
+            <strong>Shivneel Achari, 1463570</strong>
+          </p>
+        </div>
+
+        <!-- PAGE 1 Assets -->
+        <!-- IMAGES -->
+        <img class="logo animated fadeIn" src="src/p1ani/tongariro-logo.png" />
+        <img class="ngu animated fadeInRight" src="src/p1ani/nagaru.png" />
+        <img class="rpe animated fadeInRight" src="src/p1ani/ruape.png" />
+        <img class="tgo animated fadeInRight" src="src/p1ani/tongariro.png" />
+        <img class="aHike animated fadeInLeft" src="src/p1ani/act_hike.png" />
+        <img class="aSnow animated fadeInLeft" src="src/p1ani/act_snow.png" />
+        <img class="aRapids animated fadeInLeft" src="src/p1ani/act_rapids.png" />
+        <!-- TEXTS/BUTTONS -->
+        <p class="ngu_text animated fadeInUp">Ngauruhoe</p>
+        <p class="rpe_text animated fadeInUp">Ruapehu</p>
+        <p class="tgo_text animated fadeInUp">Tongariro</p>
+        <p class="aHike_text animated fadeInUp">Hiking</p>
+        <p class="aSnow_text animated fadeInUp">Snow</p>
+        <p class="aRapids_text animated fadeInUp">Rapids</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main">
+      <nav>
+        <ul>
+          <li><a href="demo1.html" target="iframe">Demo 1</a></li>
+          <li><a href="demo2.html" target="iframe">Demo 2</a></li>
+          <li><a href="demo3.html" target="iframe">Demo 3</a></li>
+          <li><a href="combo.html" target="iframe">Combo</a></li>
+          <li><a href="storyboard.html" target="iframe">Storyboards</a></li>
+          <li><a onclick="reset()">Reset</a></li>
+        </ul>
+      </nav>
+
+      <article class="article" id="content">
+        <iframe class="ifr" name="iframe" frameborder="0">Your browser doesn't support iFrames.</iframe>
+      </article>
+    </div>
+
+    <!-- Vodafone Banner -->
+    <div class="sideBanner">
+      <aside class="vfB">
+        <img class="vf-bg-asset" src="src/p2ani/bg-vf.png" />
+        <div class="add-assets">
+          <!-- IMAGE ASSETS-->
+          <!-- Commented out image is for fully drawn line logo, not sure how i'm gonna use it -->
+          <!-- <img class="vf-line-com" src="src/p2ani/com-vf-line-logo.png" /> -->
+          <img class="vf-line-inc animated fadeOut" src="src/p2ani/inc-vf-line-logo.png" />
+          <img class="vf-circle " src="src/p2ani/circle.png" />
+          <img class="vf-social" src="src/p2ani/social-logo.png" />
+          <!-- TEXTS and Buttons-->
+          <p class="vf-text-line-1">Want free data</p>
+          <p class="vf-text-line-2">every day?</p>
+          <p class="vf-text-line-3">Get 65% more</p>
+          <p class="vf-text-line-4">data every 28 days</p>
+          <p class="vf-text-line-5">to use whenever</p>
+          <p class="vf-text-line-6">you want</p>
+          <p class="vf-text-line-7">PLUS FREE <br> SOCIAL DATA</p>
+          <p class="vf-text-line-8">for 90 days</p>
+          <p class="vf-text-line-9">for new customers</p>
+          <p class="vf-text-line-10">on eligible plans</p>
+          <p class="vf-text-line-11">& phones*</p>
+          <p class="vf-text-line-12">My Flex</p>
+          <p class="vf-text-line-13">Prepay $19</p>
+          <p class="vf-text-line-14">Now with 1.25GB, 200mins, Unlimited TXT</p>
+          <p class="vf-text-line-15">to standard NZ and Oz numbers. Limited</p>
+          <p class="vf-text-line-16">time.</p>
+          <button class="moreInfo-2 animated fadeIn" onclick="location.href='https://www.vodafone.co.nz/prepay/myflex/'">Find out more</button>
+          <div class="authordiv-2 animated fadeIn">
+            <p class="author-2 animated infinite tada">
+              <strong>Recreated by: <br></strong>
+              <strong>Shivneel Achari, 1463570</strong>
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div>
+        <p>
+          <br>Created by: <strong>Shivneel Achari, 1463570</strong>
+          <br><br>
+          <strong>Internet and Website Development 2018</strong>
+          <br/>
+          <strong>Unitec</strong></p>
+        <p>This was made using a 1920x1080p display so the animations might look weird as there positions are based of my display. I don't know how to keep the positions and stuff the same when scaling the resolution. </p>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
