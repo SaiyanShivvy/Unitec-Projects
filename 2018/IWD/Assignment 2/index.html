@@ -1,200 +1,143 @@
 <!doctype html>
 <html>
-<!-- Relies on JQuery Seat-Charts Library https://github.com/mateuszmarkowski/jQuery-Seat-Charts -->
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Assignment 2</title>
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+  <title>Assignment 2 - Test 3</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="main.css">
-  <link rel="stylesheet" type="text/css" href="./lib/jquery.seat-charts.css">
-  <script src="./lib/jquery.seat-charts.js"></script>
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="main2.css">
 </head>
 
 <body>
-  <!--  Button to Game -->
-  <a href="./game.html">To Game</a>
-  <!-- Actual Seating -->
+  <script>
+    var seatArray = [];
+
+    function seat(id, row, isBooked, price) {
+      this.id = id;
+      this.row = row;
+      this.isBooked = isBooked;
+      this.price = price;
+    }
+
+    window.onload = function getRows() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("get", "rose.xml", true);
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          createSeat(this);
+        }
+      };
+      xmlhttp.send(null);
+    }
+
+    function createSeat(xmlhttp) {
+      var xmlDoc = xmlhttp.responseXML.documentElement;
+      var x = xmlDoc.getElementsByTagName("seat");
+
+      var sID = '';
+      var sRow = '';
+      var sBook = '';
+      var sPrice = '';
+      for (i = 0; i < x.length; i++) {
+        sID = x[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+        sRow = x[i].getElementsByTagName("row")[0].childNodes[0].nodeValue;
+        sBook = x[i].getElementsByTagName("isBooked")[0].childNodes[0].nodeValue;
+        sPrice = x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue;
+        //console.log(sID, sRow, sBook, sPrice);
+
+        var newSeat = new seat(sID, sRow, sBook, sPrice);
+        seatArray[i] = newSeat;
+      }
+    }
+
+    function selectSeat(cell){
+      // - [x] TODO: Add or Remove Seat from Cart
+      // - [ ] TODO: Calculate Total
+
+      //console.log("I cell " + cell.id + " have been touched!");
+
+      var cart = document.getElementById('selected-seats');
+      var liCart = document.createElement("li");
+      var rmCart;
+      if (cell.classList.contains("booked")){
+        alert("Sorry, bud. You were to slow and this seat " + cell.id + " is now booked.")
+      }
+      else if (cell.classList.contains('selected')){
+        cell.classList.toggle("selected");
+        rmCart = document.getElementById("cart-item-"+cell.id);
+        rmCart.parentNode.removeChild(rmCart);
+
+        //console.log(cell);
+      }
+      else{
+        cell.classList.toggle("selected");
+        liCart.setAttribute("id", "cart-item-"+cell.id)
+        liCart.appendChild(document.createTextNode("Seat "+cell.id));
+        cart.append(liCart);
+
+        //console.log(cell);
+      }
+    }
+
+    function BookingDetails(){
+      // - [ ] TODO: When Seat is selected display the booking details from the array.
+    }
+
+    function display_rose() {
+      var displaytext = '';
+      var table = document.getElementById('roseLayout');
+      var numRows = 9;
+      var numCol = 9;
+      var sNum = 0;
+      for (var i = 0; i < numRows; i++) {
+        var row = table.insertRow(i);
+        for (var j = 0; j < numCol; j++) {
+          //cellName = seatArray[sNum].id + "_" + seatArray[sNum].row;
+          cellName = seatArray[sNum].id
+          //console.log(cellName);
+          cell = row.insertCell(row.cells.length);
+          if (seatArray[sNum].id == 'M' || seatArray[sNum].id == 'W') {
+            cell.innerHTML = '<div>' + '</div>';
+            cell.setAttribute("class", "walk");
+            //console.log("Cell:" + seatArray[sNum].id);
+          } else {
+            if (seatArray[sNum].isBooked == "yes") {
+              cell.innerHTML = '<div>' + seatArray[sNum].id + '</div>';
+              cell.setAttribute("class", "seat booked");
+            } else {
+              cell.innerHTML = '<div>' + seatArray[sNum].id + '</div>';
+              cell.setAttribute("class", "seat");
+            }
+            cell.setAttribute("id", cellName);
+            cell.setAttribute("onclick", "selectSeat(this)");
+            row.appendChild(cell);
+          }
+          sNum = sNum + 1;
+        }
+      }
+      table.appendChild(row);
+    }
+  </script>
+  <h1>Rose Layout</h1>
+  <button type="button" onclick="display_rose()">Show Table</button>
+  <table border='1' id="roseLayout"></table>
+
+
   <div class="wrapper">
     <div class="container">
-      <div id="seat-rose" class="map">
-      </div>
       <div class="booking-details">
         <h2>Booking Details</h2>
-        <ol>
-          <il>
-            <h4>Boat:
-              <span id="boatName"></span>
-            </h4>
-            <h4>Time:
-              <span id="time"></span>
-            </h4>
-          </il>
-        </ol>
-        <h3> Selected Seats (<span id="counter">0</span>):</h3>
+        <h3> Selected Seats: <span id="counter"></span></h3>
         <ul id="selected-seats"></ul>
-        Total:<b>$<span id="total">0</span></b>
-        <button class="checkout-button" id="book">Book &raquo;</button>
-        <!-- <div id="legend"></div> -->
+        Total:
+        <b>$
+          <span id="total">0</span>
+        </b>
       </div>
     </div>
   </div>
-
-  <script>
-    var firstSeatLabel = 1;
-    $(document).ready(function() {
-      $.ajax({
-        type: "GET",
-        url: "rose.xml",
-        dataType: "xml",
-        success: function(xml) {
-          var xmlDoc = $.parseXML(xml),
-            $xml = $(xmlDoc),
-            $book = $('#book'),
-            $cart = $('#selected-seats'),
-            $counter = $('#counter'),
-            $total = $('#total'),
-            sc = $('#seat-rose').seatCharts({
-              map: [
-                '_aaa_aaa_',
-                '_aaa_aaa_',
-                'bbbb_bbbb',
-                'bbbb_bbbb',
-                'bbbb_bbbb',
-                'cccc_cccc',
-                'cccc_cccc',
-                'cccc_cccc',
-                '_ccc_ccc_',
-              ],
-              seats: {
-                a: { //Row 1
-                  price: 30,
-                  classes: 'first_row', //your custom CSS class
-                  category: 'First Row'
-                },
-                b: { //Row 2
-                  price: 25,
-                  classes: 'second-row', //your custom CSS class
-                  category: 'Second Row'
-                },
-                c: { //Row 3
-                  price: 20,
-                  classes: 'third-row', //your custom CSS class
-                  category: 'Third Row'
-                }
-              },
-              naming: {
-                top: false,
-                left: false,
-                getLabel: function(character, row, column) {
-                  return firstSeatLabel++;
-                },
-              },
-              click: function() {
-                if (this.status() == 'available') {
-                  //let's create a new <li> which we'll add to the cart items
-                  $('<li>' + this.data().category + ' Seat # ' +
-                      this.settings.label + ': <b>$' + this.data()
-                      .price +
-                      '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>'
-                    )
-                    .attr('id', 'cart-item-' + this.settings.id)
-                    .data('seatId', this.settings.id)
-                    .appendTo($cart);
-
-                  $counter.text(sc.find('selected').length + 1);
-                  $total.text(recalculateTotal(sc) + this.data().price);
-                  return 'selected';
-                } else if (this.status() == 'selected') {
-                  //update the counter
-                  $counter.text(sc.find('selected').length - 1);
-                  //and total
-                  $total.text(recalculateTotal(sc) - this.data().price);
-
-                  //remove the item from our cart
-                  $('#cart-item-' + this.settings.id).remove();
-
-                  //seat has been vacated
-                  return 'available';
-                } else if (this.status() == 'unavailable') {
-                  //seat has been already booked
-                  return 'unavailable';
-                } else {
-                  return this.style();
-                }
-              }
-            });
-          //this will handle "[cancel]" link clicks
-          $('#selected-seats').on('click', '.cancel-cart-item', function() {
-            //let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
-            sc.get($(this).parents('li:first').data('seatId')).click();
-          });
-
-          //let's pretend some seats have already been booked
-          sc.get(['4_1', '7_1', '7_2']).status('unavailable');
-
-          //Removes and clears map
-          $book.on('click', function() {
-            $('.seatCharts-row').remove();
-            $('#seat-rose,#seat-rose *').unbind().removeData();
-            sc = $('#seat-rose').seatCharts({
-              map: [
-                '_aaa_aaa_',
-                '_aaa_aaa_',
-                'bbbb_bbbb',
-                'bbbb_bbbb',
-                'bbbb_bbbb',
-                'cccc_cccc',
-                'cccc_cccc',
-                'cccc_cccc',
-                '_ccc_ccc_',
-              ]});
-          });
-
-          function recalculateTotal(sc) {
-            var total = 0; //basically find every selected seat and sum its price
-            sc.find('selected').each(function() {
-              total += this.data().price;
-            });
-            return total;
-          }
-        },
-        error: function() {
-          alert("An error occurred while processing XML file.");
-        }
-      });
-    })
-  </script>
-  <div id="dvContent" class="trash">
-    <p>Testing Ajax XML parsing using JQuery</p>
-  </div>
-  <script>
-    $(document).ready(function() {
-      $("#dvContent").append("<ul></ul>");
-      $.ajax({
-        type: "GET",
-        url: "rose.xml",
-        dataType: "xml",
-        success: function(xml) {
-          $(xml).find('seat').each(function() {
-            var sStatus = $(this).find('isBooked').text();
-            var sPrice = $(this).find('price').text();
-            var sSeatId = $(this).find('id').text();
-            var sRow = $(this).find('row').text();
-            $("<li></li>").html("Row: " + sRow + ", Seat: " + sSeatId +
-              ", Costs: " + sPrice + ", is Booked: " +
-              sStatus).appendTo("#dvContent ul");
-          });
-        },
-        error: function() {
-          alert("An error occurred while processing XML file.");
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>
