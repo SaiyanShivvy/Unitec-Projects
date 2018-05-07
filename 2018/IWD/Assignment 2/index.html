@@ -24,7 +24,7 @@
     window.onload = function getRows() {
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open("get", "rose.xml", true);
-      xmlhttp.onreadystatechange = function () {
+      xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           createSeat(this);
         }
@@ -52,7 +52,7 @@
       }
     }
 
-    function selectSeat(cell){
+    function selectSeat(cell) {
       // - [x] TODO: Add or Remove Seat from Cart
       // - [ ] TODO: Calculate Total
 
@@ -61,28 +61,46 @@
       var cart = document.getElementById('selected-seats');
       var liCart = document.createElement("li");
       var rmCart;
-      if (cell.classList.contains("booked")){
+      if (cell.classList.contains("booked")) {
         alert("Sorry, bud. You were to slow and this seat " + cell.id + " is now booked.")
-      }
-      else if (cell.classList.contains('selected')){
+      } else if (cell.classList.contains('selected')) {
         cell.classList.toggle("selected");
-        rmCart = document.getElementById("cart-item-"+cell.id);
+        rmCart = document.getElementById("cart-item-" + cell.id);
         rmCart.parentNode.removeChild(rmCart);
 
         //console.log(cell);
-      }
-      else{
+      } else {
         cell.classList.toggle("selected");
-        liCart.setAttribute("id", "cart-item-"+cell.id)
-        liCart.appendChild(document.createTextNode("Seat "+cell.id));
+        liCart.setAttribute("id", "cart-item-" + cell.id)
+        liCart.appendChild(document.createTextNode("Seat " + cell.id));
         cart.append(liCart);
-
+        bookingDetails(cell);
         //console.log(cell);
       }
     }
 
-    function BookingDetails(){
+    function bookingDetails(cell) {
       // - [ ] TODO: When Seat is selected display the booking details from the array.
+      var seatInfo = document.getElementById('seatInfo');
+      var seatPrice = document.getElementById('seatPrice');
+      if (cell.classList.contains("selected")) {
+        seatInfo.textContent = cell.id;
+        seatPrice.textContent = findSeat(cell.id);
+      } else {
+        seatInfo.textContent = " ";
+        seatPrice.textContent = " ";
+      }
+    }
+
+    function findSeat(id){
+      //console.log(id);
+      for (var i = 0; i < seatArray.length; i++){
+        if (seatArray[i].id == id){
+          var sP = seatArray[i].price;
+          //console.log(sP);
+          return sP;
+        }
+      }
     }
 
     function display_rose() {
@@ -121,14 +139,16 @@
     }
   </script>
   <h1>Rose Layout</h1>
-  <button type="button" onclick="display_rose()">Show Table</button>
+  <button type="button" onclick="display_rose()">Show Rose Layout</button>
   <table border='1' id="roseLayout"></table>
-
 
   <div class="wrapper">
     <div class="container">
       <div class="booking-details">
         <h2>Booking Details</h2>
+        <h4>Time: </h4>
+        <h4>Seat: <span id="seatInfo"></span></h4>
+        <h4>Price: <span id="seatPrice"></span></h4>
         <h3> Selected Seats: <span id="counter"></span></h3>
         <ul id="selected-seats"></ul>
         Total:
