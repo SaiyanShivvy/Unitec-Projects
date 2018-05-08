@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <boat>
     <!-- Row 1 - Seat Price: $30 -->
-    <seat> 
+    <seat>
         <!-- Not Displayed-->
         <id>W</id>
         <isBooked>no</isBooked>
@@ -10,13 +10,13 @@
     </seat>
     <seat>
         <id>1</id>
-        <isBooked>yes</isBooked>
+        <isBooked>no</isBooked>
         <row>1</row>
         <price>30</price>
     </seat>
     <seat>
         <id>2</id>
-        <isBooked>yes</isBooked>
+        <isBooked>no</isBooked>
         <row>1</row>
         <price>30</price>
     </seat>
@@ -35,22 +35,22 @@
     </seat>
     <seat>
         <id>4</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>1</row>
         <price>30</price>
     </seat>
     <seat>
         <id>5</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>1</row>
         <price>30</price>
     </seat>
     <seat>
         <id>6</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>1</row>
         <price>30</price>
-    </seat>    
+    </seat>
     <seat>
         <!-- Not Displayed-->
         <id>W</id>
@@ -58,7 +58,7 @@
         <row>1</row>
         <price>0</price>
     </seat>
-    <!-- Row 2 - Seat Price: $30 -->            
+    <!-- Row 2 - Seat Price: $30 -->
     <seat>
         <!-- Not Displayed-->
         <id>W</id>
@@ -93,7 +93,7 @@
     </seat>
     <seat>
         <id>10</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>2</row>
         <price>30</price>
     </seat>
@@ -108,7 +108,7 @@
         <isBooked>no</isBooked>
         <row>2</row>
         <price>30</price>
-    </seat>            
+    </seat>
     <seat>
         <!-- Not Displayed-->
         <id>W</id>
@@ -141,7 +141,7 @@
         <row>3</row>
         <price>25</price>
     </seat>
-    <!-- MIDDLE WALK--> 
+    <!-- MIDDLE WALK-->
     <seat>
         <!-- Not Displayed-->
         <id>M</id>
@@ -210,25 +210,25 @@
     <!-- MIDDLE WALK-->
     <seat>
         <id>25</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>4</row>
         <price>25</price>
     </seat>
     <seat>
         <id>26</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>4</row>
         <price>25</price>
     </seat>
     <seat>
         <id>27</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>4</row>
         <price>25</price>
     </seat>
     <seat>
         <id>28</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>4</row>
         <price>25</price>
     </seat>
@@ -247,16 +247,16 @@
     </seat>
     <seat>
         <id>31</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>5</row>
         <price>25</price>
     </seat>
     <seat>
         <id>32</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>5</row>
         <price>25</price>
-    </seat>    
+    </seat>
     <!-- MIDDLE WALK-->
     <seat>
         <!-- Not Displayed-->
@@ -314,7 +314,7 @@
         <isBooked>no</isBooked>
         <row>6</row>
         <price>20</price>
-    </seat>    
+    </seat>
     <!-- MIDDLE WALK-->
     <seat>
         <!-- Not Displayed-->
@@ -326,13 +326,13 @@
     <!-- MIDDLE WALK-->
     <seat>
         <id>41</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>6</row>
         <price>20</price>
     </seat>
     <seat>
         <id>42</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>8</row>
         <price>20</price>
     </seat>
@@ -357,7 +357,7 @@
     </seat>
     <seat>
         <id>46</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>7</row>
         <price>20</price>
     </seat>
@@ -372,7 +372,7 @@
         <isBooked>no</isBooked>
         <row>7</row>
         <price>20</price>
-    </seat>    
+    </seat>
     <!-- MIDDLE WALK-->
     <seat>
         <!-- Not Displayed-->
@@ -430,7 +430,7 @@
         <isBooked>no</isBooked>
         <row>8</row>
         <price>20</price>
-    </seat>    
+    </seat>
     <!-- MIDDLE WALK-->
     <seat>
         <!-- Not Displayed-->

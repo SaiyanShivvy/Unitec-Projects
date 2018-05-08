@@ -1,5 +1,4 @@
-#my-canvas {
-	background-color: blue;
-	height: 400px;
-	width: 400px;
+canvas {
+	background-color: #f1f1f1;
+	border: 1px solid #d3d3d3;
 }

@@ -1,4 +1,8 @@
 <!doctype html>
+<!-- TODO: Move Inline Script functions to external seats.js -->
+<!-- TODO: other boat layout -->
+<!-- TODO: redo functions so it can easily work for both tables, not just one -->
+<!-- TODO: create a total cost calc function, may need jQuery -->
 <html>
 
 <head>
@@ -6,8 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Assignment 2 - Test 3</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="main2.css">
+  <!-- <script type="text/javascript" src="seats.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="mStyle.css">
 </head>
 
 <body>
@@ -83,16 +87,17 @@
       // - [ ] TODO: When Seat is selected display the booking details from the array.
       var seatInfo = document.getElementById('seatInfo');
       var seatPrice = document.getElementById('seatPrice');
+      var total = document.getElementById('total');
       if (cell.classList.contains("selected")) {
         seatInfo.textContent = cell.id;
-        seatPrice.textContent = findSeat(cell.id);
+        seatPrice.textContent = "$" + getSeatPrice(cell.id);
       } else {
         seatInfo.textContent = " ";
         seatPrice.textContent = " ";
       }
     }
 
-    function findSeat(id){
+    function getSeatPrice(id){
       //console.log(id);
       for (var i = 0; i < seatArray.length; i++){
         if (seatArray[i].id == id){
