@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!-- NOTE: GAME CONTEXT: You are a bird, and your goal is to collect seeds
+     in your beak (+1 score), if it touch anyother part of the body (-1 score).
+     Seeds; grow from 6px to 24px and change colour green to red.
+     Bird; left, up, right, down for movement.
+ -->
 <!-- TODO: Setup Controls -->
 <!-- TODO: spawn seeds and change color and size -->
 <!-- TODO: let the seeds fly -->
@@ -6,86 +11,16 @@
 <html>
 
 <head>
-  <title>Canvas Intro</title>
+  <title>Canvas Game</title>
   <link rel="stylesheet" type="text/css" href="gStyle.css">
+  <!-- <script src="//cdn.jsdelivr.net/npm/phaser@3.0.0/dist/phaser.min.js"></script> -->
 </head>
 
 <body>
-  <canvas id="myCanvas" width="600px" height="400px"></canvas>
+  <div id="canvasDiv">
+    <canvas id="gameCanvas" width="800px" height="600px" style="background: url('./src/assets/sky.jpg')"></canvas>
+    <script type="text/javascript" src="game.js"></script>
+  </div>
 </body>
-
-<script>
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
-var deltaX = 0;
-var deltaY = 0;
-var keys = []; //store keypresses
-
-//keyboard events
-window.addEventListener("keydown", keysPressed, false);
-window.addEventListener("keyup", keysReleased, false);
-
-function drawTriangle() { //testing mr x using a triangle
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // the triangle
-  ctx.beginPath();
-  ctx.moveTo(200 + deltaX, 100 + deltaY);
-  ctx.lineTo(170 + deltaX, 150 + deltaY);
-  ctx.lineTo(230 + deltaX, 150 + deltaY);
-  ctx.closePath();
-
-  // the outline
-  ctx.lineWidth = 10;
-  ctx.strokeStyle = "rgba(102, 102, 102, 1)";
-  ctx.stroke();
-
-  // the fill color
-  ctx.fillStyle = "rgba(255, 204, 0, 1)";
-  ctx.fill();
-}
-
-function drawGrass()
-{
-  base_image = new Image();
-  base_image.src = 'src/assets/sample_grass.png';
-  base_image.onload = function(){
-    ctx.drawImage(base_image, 0, 300, 600, 150);
-  }
-}
-//handle movement based on key pressed allows for diagonals, maybe changed
-function keysPressed(e) {
-    // store an entry for every key pressed
-    keys[e.keyCode] = true;
-    // left
-    if (keys[37]) {
-      deltaX -= 2;
-    }
-    // right
-    if (keys[39]) {
-      deltaX += 2;
-    }
-    // down
-    if (keys[38]) {
-      deltaY -= 2;
-    }
-    // up
-    if (keys[40]) {
-      deltaY += 2;
-    }
-    e.preventDefault();
-    drawGrass();
-    drawTriangle();
-}
-
-function keysReleased(e) {
-    // mark keys that were released
-    keys[e.keyCode] = false;
-}
-
-//call functions
-drawTriangle();
-drawGrass();
-
-</script>
 
 </html>
