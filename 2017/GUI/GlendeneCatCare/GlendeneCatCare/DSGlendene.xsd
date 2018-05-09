@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSGlendene" targetNamespace="http://tempuri.org/DSGlendene.xsd" xmlns:mstns="http://tempuri.org/DSGlendene.xsd" xmlns="http://tempuri.org/DSGlendene.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSGlendene" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSGlendene" msprop:Generator_DataSetName="DSGlendene">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CAT" msprop:Generator_TableClassName="CATDataTable" msprop:Generator_TableVarName="tableCAT" msprop:Generator_TablePropName="CAT" msprop:Generator_RowDeletingName="CATRowDeleting" msprop:Generator_RowChangingName="CATRowChanging" msprop:Generator_RowEvHandlerName="CATRowChangeEventHandler" msprop:Generator_RowDeletedName="CATRowDeleted" msprop:Generator_UserTableName="CAT" msprop:Generator_RowChangedName="CATRowChanged" msprop:Generator_RowEvArgName="CATRowChangeEvent" msprop:Generator_RowClassName="CATRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CatID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnCatID" msprop:Generator_ColumnPropNameInRow="CatID" msprop:Generator_ColumnPropNameInTable="CatIDColumn" msprop:Generator_UserColumnName="CatID" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Breed" msprop:Generator_ColumnVarNameInTable="columnBreed" msprop:Generator_ColumnPropNameInRow="Breed" msprop:Generator_ColumnPropNameInTable="BreedColumn" msprop:Generator_UserColumnName="Breed" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateOfBirth" msprop:Generator_ColumnVarNameInTable="columnDateOfBirth" msprop:Generator_ColumnPropNameInRow="DateOfBirth" msprop:Generator_ColumnPropNameInTable="DateOfBirthColumn" msprop:Generator_UserColumnName="DateOfBirth" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Neutered" msprop:Generator_ColumnVarNameInTable="columnNeutered" msprop:Generator_ColumnPropNameInRow="Neutered" msprop:Generator_ColumnPropNameInTable="NeuteredColumn" msprop:Generator_UserColumnName="Neutered" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OwnerID" msprop:Generator_ColumnVarNameInTable="columnOwnerID" msprop:Generator_ColumnPropNameInRow="OwnerID" msprop:Generator_ColumnPropNameInTable="OwnerIDColumn" msprop:Generator_UserColumnName="OwnerID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OWNER" msprop:Generator_TableClassName="OWNERDataTable" msprop:Generator_TableVarName="tableOWNER" msprop:Generator_TablePropName="OWNER" msprop:Generator_RowDeletingName="OWNERRowDeleting" msprop:Generator_RowChangingName="OWNERRowChanging" msprop:Generator_RowEvHandlerName="OWNERRowChangeEventHandler" msprop:Generator_RowDeletedName="OWNERRowDeleted" msprop:Generator_UserTableName="OWNER" msprop:Generator_RowChangedName="OWNERRowChanged" msprop:Generator_RowEvArgName="OWNERRowChangeEvent" msprop:Generator_RowClassName="OWNERRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OwnerID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnOwnerID" msprop:Generator_ColumnPropNameInRow="OwnerID" msprop:Generator_ColumnPropNameInTable="OwnerIDColumn" msprop:Generator_UserColumnName="OwnerID" type="xs:int" />
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StreetAddress" msprop:Generator_ColumnVarNameInTable="columnStreetAddress" msprop:Generator_ColumnPropNameInRow="StreetAddress" msprop:Generator_ColumnPropNameInTable="StreetAddressColumn" msprop:Generator_UserColumnName="StreetAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Suburb" msprop:Generator_ColumnVarNameInTable="columnSuburb" msprop:Generator_ColumnPropNameInRow="Suburb" msprop:Generator_ColumnPropNameInTable="SuburbColumn" msprop:Generator_UserColumnName="Suburb" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PhoneNumber" msprop:Generator_ColumnVarNameInTable="columnPhoneNumber" msprop:Generator_ColumnPropNameInRow="PhoneNumber" msprop:Generator_ColumnPropNameInTable="PhoneNumberColumn" msprop:Generator_UserColumnName="PhoneNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TREATMENT" msprop:Generator_TableClassName="TREATMENTDataTable" msprop:Generator_TableVarName="tableTREATMENT" msprop:Generator_TablePropName="TREATMENT" msprop:Generator_RowDeletingName="TREATMENTRowDeleting" msprop:Generator_RowChangingName="TREATMENTRowChanging" msprop:Generator_RowEvHandlerName="TREATMENTRowChangeEventHandler" msprop:Generator_RowDeletedName="TREATMENTRowDeleted" msprop:Generator_UserTableName="TREATMENT" msprop:Generator_RowChangedName="TREATMENTRowChanged" msprop:Generator_RowEvArgName="TREATMENTRowChangeEvent" msprop:Generator_RowClassName="TREATMENTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TreatmentID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnTreatmentID" msprop:Generator_ColumnPropNameInRow="TreatmentID" msprop:Generator_ColumnPropNameInTable="TreatmentIDColumn" msprop:Generator_UserColumnName="TreatmentID" type="xs:int" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnPropNameInTable="CostColumn" msprop:Generator_UserColumnName="Cost" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VETERINARIAN" msprop:Generator_TableClassName="VETERINARIANDataTable" msprop:Generator_TableVarName="tableVETERINARIAN" msprop:Generator_TablePropName="VETERINARIAN" msprop:Generator_RowDeletingName="VETERINARIANRowDeleting" msprop:Generator_RowChangingName="VETERINARIANRowChanging" msprop:Generator_RowEvHandlerName="VETERINARIANRowChangeEventHandler" msprop:Generator_RowDeletedName="VETERINARIANRowDeleted" msprop:Generator_UserTableName="VETERINARIAN" msprop:Generator_RowChangedName="VETERINARIANRowChanged" msprop:Generator_RowEvArgName="VETERINARIANRowChangeEvent" msprop:Generator_RowClassName="VETERINARIANRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VeterinarianID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnVeterinarianID" msprop:Generator_ColumnPropNameInRow="VeterinarianID" msprop:Generator_ColumnPropNameInTable="VeterinarianIDColumn" msprop:Generator_UserColumnName="VeterinarianID" type="xs:int" />
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rate" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnPropNameInTable="RateColumn" msprop:Generator_UserColumnName="Rate" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VISIT" msprop:Generator_TableClassName="VISITDataTable" msprop:Generator_TableVarName="tableVISIT" msprop:Generator_TablePropName="VISIT" msprop:Generator_RowDeletingName="VISITRowDeleting" msprop:Generator_RowChangingName="VISITRowChanging" msprop:Generator_RowEvHandlerName="VISITRowChangeEventHandler" msprop:Generator_RowDeletedName="VISITRowDeleted" msprop:Generator_UserTableName="VISIT" msprop:Generator_RowChangedName="VISITRowChanged" msprop:Generator_RowEvArgName="VISITRowChangeEvent" msprop:Generator_RowClassName="VISITRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VisitID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnVisitID" msprop:Generator_ColumnPropNameInRow="VisitID" msprop:Generator_ColumnPropNameInTable="VisitIDColumn" msprop:Generator_UserColumnName="VisitID" type="xs:int" />
+              <xs:element name="CatID" msprop:Generator_ColumnVarNameInTable="columnCatID" msprop:Generator_ColumnPropNameInRow="CatID" msprop:Generator_ColumnPropNameInTable="CatIDColumn" msprop:Generator_UserColumnName="CatID" type="xs:int" minOccurs="0" />
+              <xs:element name="VeterinarianID" msprop:Generator_ColumnVarNameInTable="columnVeterinarianID" msprop:Generator_ColumnPropNameInRow="VeterinarianID" msprop:Generator_ColumnPropNameInTable="VeterinarianIDColumn" msprop:Generator_UserColumnName="VeterinarianID" type="xs:int" minOccurs="0" />
+              <xs:element name="VisitDate" msprop:Generator_ColumnVarNameInTable="columnVisitDate" msprop:Generator_ColumnPropNameInRow="VisitDate" msprop:Generator_ColumnPropNameInTable="VisitDateColumn" msprop:Generator_UserColumnName="VisitDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VISITTREATMENT" msprop:Generator_TableClassName="VISITTREATMENTDataTable" msprop:Generator_TableVarName="tableVISITTREATMENT" msprop:Generator_TablePropName="VISITTREATMENT" msprop:Generator_RowDeletingName="VISITTREATMENTRowDeleting" msprop:Generator_RowChangingName="VISITTREATMENTRowChanging" msprop:Generator_RowEvHandlerName="VISITTREATMENTRowChangeEventHandler" msprop:Generator_RowDeletedName="VISITTREATMENTRowDeleted" msprop:Generator_UserTableName="VISITTREATMENT" msprop:Generator_RowChangedName="VISITTREATMENTRowChanged" msprop:Generator_RowEvArgName="VISITTREATMENTRowChangeEvent" msprop:Generator_RowClassName="VISITTREATMENTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VisitID" msprop:Generator_ColumnVarNameInTable="columnVisitID" msprop:Generator_ColumnPropNameInRow="VisitID" msprop:Generator_ColumnPropNameInTable="VisitIDColumn" msprop:Generator_UserColumnName="VisitID" type="xs:int" />
+              <xs:element name="TreatmentID" msprop:Generator_ColumnVarNameInTable="columnTreatmentID" msprop:Generator_ColumnPropNameInRow="TreatmentID" msprop:Generator_ColumnPropNameInTable="TreatmentIDColumn" msprop:Generator_UserColumnName="TreatmentID" type="xs:int" />
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CAT" />
+      <xs:field xpath="mstns:CatID" />
+    </xs:unique>
+    <xs:unique name="OWNER_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OWNER" />
+      <xs:field xpath="mstns:OwnerID" />
+    </xs:unique>
+    <xs:unique name="TREATMENT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TREATMENT" />
+      <xs:field xpath="mstns:TreatmentID" />
+    </xs:unique>
+    <xs:unique name="VETERINARIAN_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VETERINARIAN" />
+      <xs:field xpath="mstns:VeterinarianID" />
+    </xs:unique>
+    <xs:unique name="VISIT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VISIT" />
+      <xs:field xpath="mstns:VisitID" />
+    </xs:unique>
+    <xs:unique name="VISITTREATMENT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VISITTREATMENT" />
+      <xs:field xpath="mstns:VisitID" />
+      <xs:field xpath="mstns:TreatmentID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
