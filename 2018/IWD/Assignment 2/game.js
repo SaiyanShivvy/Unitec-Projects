@@ -62,8 +62,6 @@ function drawChar() {
 //Game Functions
 function gameLoop(){
   clear();
-
-
 }
 
 function clear() {
