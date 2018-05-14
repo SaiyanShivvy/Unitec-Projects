@@ -17,6 +17,7 @@
 <body>
   <script>
     var seatRose = [];
+    var seatPrincess = [];
 
     function seat(id, row, isBooked, price) {
       this.id = id;
@@ -156,11 +157,11 @@
   </div>
 
   <h1>Rose Layout</h1>
-  <button type="button" onclick="display_rose()">Show Rose Layout</button>
-  <table border='1' id="roseLayout"></table>
-
   <div class="wrapper">
     <div class="container">
+      <button type="button" onclick="display_rose()">Show Rose Layout</button>
+      <table border='1' id="roseLayout"></table>
+
       <div class="booking-details">
         <h2>Booking Details</h2>
         <h4>Time:

@@ -28,3 +28,8 @@ canvas {
 	color: #000;
 	background-color: #fff;
 }
+
+* {
+    box-sizing: border-box;
+}
+
