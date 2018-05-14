@@ -16,7 +16,7 @@
 
 <body>
   <script>
-    var seatArray = [];
+    var seatRose = [];
 
     function seat(id, row, isBooked, price) {
       this.id = id;
@@ -28,15 +28,15 @@
     window.onload = function getRows() {
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open("get", "rose.xml", true);
-      xmlhttp.onreadystatechange = function() {
+      xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          createSeat(this);
+          createRoseSeat(this);
         }
       };
       xmlhttp.send(null);
     }
 
-    function createSeat(xmlhttp) {
+    function createRoseSeat(xmlhttp) {
       var xmlDoc = xmlhttp.responseXML.documentElement;
       var x = xmlDoc.getElementsByTagName("seat");
 
@@ -52,15 +52,13 @@
         //console.log(sID, sRow, sBook, sPrice);
 
         var newSeat = new seat(sID, sRow, sBook, sPrice);
-        seatArray[i] = newSeat;
+        seatRose[i] = newSeat;
       }
     }
 
-    function selectSeat(cell) {
+    function selectRoseSeat(cell) {
       // - [x] TODO: Add or Remove Seat from Cart
       // - [ ] TODO: Calculate Total
-
-      //console.log("I cell " + cell.id + " have been touched!");
 
       var cart = document.getElementById('selected-seats');
       var liCart = document.createElement("li");
@@ -71,37 +69,37 @@
         cell.classList.toggle("selected");
         rmCart = document.getElementById("cart-item-" + cell.id);
         rmCart.parentNode.removeChild(rmCart);
-
         //console.log(cell);
       } else {
         cell.classList.toggle("selected");
         liCart.setAttribute("id", "cart-item-" + cell.id)
         liCart.appendChild(document.createTextNode("Seat " + cell.id));
         cart.append(liCart);
-        bookingDetails(cell);
+        roseDetails(cell);
         //console.log(cell);
       }
     }
 
-    function bookingDetails(cell) {
+    function roseDetails(cell) {
       // - [ ] TODO: When Seat is selected display the booking details from the array.
       var seatInfo = document.getElementById('seatInfo');
       var seatPrice = document.getElementById('seatPrice');
       var total = document.getElementById('total');
       if (cell.classList.contains("selected")) {
         seatInfo.textContent = cell.id;
-        seatPrice.textContent = "$" + getSeatPrice(cell.id);
+        seatPrice.textContent = "$" + getRoseSeatPrice(cell.id);
       } else {
         seatInfo.textContent = " ";
         seatPrice.textContent = " ";
+        $(".hello").empty();
       }
     }
 
-    function getSeatPrice(id){
+    function getRoseSeatPrice(id) {
       //console.log(id);
-      for (var i = 0; i < seatArray.length; i++){
-        if (seatArray[i].id == id){
-          var sP = seatArray[i].price;
+      for (var i = 0; i < seatRose.length; i++) {
+        if (seatRose[i].id == id) {
+          var sP = seatRose[i].price;
           //console.log(sP);
           return sP;
         }
@@ -109,7 +107,6 @@
     }
 
     function display_rose() {
-      var displaytext = '';
       var table = document.getElementById('roseLayout');
       var numRows = 9;
       var numCol = 9;
@@ -117,24 +114,24 @@
       for (var i = 0; i < numRows; i++) {
         var row = table.insertRow(i);
         for (var j = 0; j < numCol; j++) {
-          //cellName = seatArray[sNum].id + "_" + seatArray[sNum].row;
-          cellName = seatArray[sNum].id
+          //cellName = seatRose[sNum].id + "_" + seatRose[sNum].row;
+          cellName = seatRose[sNum].id
           //console.log(cellName);
           cell = row.insertCell(row.cells.length);
-          if (seatArray[sNum].id == 'M' || seatArray[sNum].id == 'W') {
+          if (seatRose[sNum].id == 'M' || seatRose[sNum].id == 'W') {
             cell.innerHTML = '<div>' + '</div>';
             cell.setAttribute("class", "walk");
-            //console.log("Cell:" + seatArray[sNum].id);
+            //console.log("Cell:" + seatRose[sNum].id);
           } else {
-            if (seatArray[sNum].isBooked == "yes") {
-              cell.innerHTML = '<div>' + seatArray[sNum].id + '</div>';
+            if (seatRose[sNum].isBooked == "yes") {
+              cell.innerHTML = '<div>' + seatRose[sNum].id + '</div>';
               cell.setAttribute("class", "seat booked");
             } else {
-              cell.innerHTML = '<div>' + seatArray[sNum].id + '</div>';
+              cell.innerHTML = '<div>' + seatRose[sNum].id + '</div>';
               cell.setAttribute("class", "seat");
             }
             cell.setAttribute("id", cellName);
-            cell.setAttribute("onclick", "selectSeat(this)");
+            cell.setAttribute("onclick", "selectRoseSeat(this)");
             row.appendChild(cell);
           }
           sNum = sNum + 1;
@@ -143,6 +140,21 @@
       table.appendChild(row);
     }
   </script>
+
+  <div id="navbar">
+    <ul>
+      <li>
+        <a href="index.html">Seat Booking</a>
+      </li>
+      <li>
+        <a href="game.html">Game</a>
+      </li>
+      <li>
+        <a href="index.html">Part 3</a>
+      </li>
+    </ul>
+  </div>
+
   <h1>Rose Layout</h1>
   <button type="button" onclick="display_rose()">Show Rose Layout</button>
   <table border='1' id="roseLayout"></table>
@@ -151,10 +163,23 @@
     <div class="container">
       <div class="booking-details">
         <h2>Booking Details</h2>
-        <h4>Time: </h4>
-        <h4>Seat: <span id="seatInfo"></span></h4>
-        <h4>Price: <span id="seatPrice"></span></h4>
-        <h3> Selected Seats: <span id="counter"></span></h3>
+        <h4>Time:
+          <!-- <input id="datetime" type="datetime-local"> -->
+          <select id="DateTime">
+            <option value="date1">18 May 2017 - 10:30 AM</option>
+            <option value="date2" selected>18 May 2017 - 12:30 PM</option>
+            <option value="date3">18 May 2017 - 2:30 PM</option>
+          </select>
+        </h4>
+        <h4>Seat:
+          <span id="seatInfo"></span>
+        </h4>
+        <h4>Price:
+          <span id="seatPrice"></span>
+        </h4>
+        <h3> Selected Seats:
+          <span id="counter"></span>
+        </h3>
         <ul id="selected-seats"></ul>
         Total:
         <b>$
