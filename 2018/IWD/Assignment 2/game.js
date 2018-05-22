@@ -19,11 +19,11 @@ srcX = 0, srcY = 0;
 //------------------------------------------------------------//
 //Keyboard Stuff
 var keys = [];
-document.body.addEventListener("keydown", function(event) {
+document.body.addEventListener("keydown", function (event) {
   keys[event.keyCode] = true;
 });
 
-document.body.addEventListener("keyup", function(event) {
+document.body.addEventListener("keyup", function (event) {
   keys[event.keyCode] = false;
 });
 //------------------------------------------------------------//
@@ -36,13 +36,13 @@ document.body.addEventListener("keyup", function(event) {
 //grass, spawn location of seeds
 var grass_Image = new Image();
 grass_Image.src = "src/assets/sample_grass.png";
-grass_Image.onload = function() {
+grass_Image.onload = function () {
   drawBase();
 }
 //player
 var player_Image = new Image();
 player_Image.src = "src/assets/player_bird_ss.png";
-player_Image.onload = function() {
+player_Image.onload = function () {
   drawChar();
 }
 //------------------------------------------------------------//
@@ -56,11 +56,12 @@ function drawChar() {
   srcX += 927;
   if (srcX >= 7416) {
     srcX = 0;
+  }
 }
 
 //------------------------------------------------------------//
 //Game Functions
-function gameLoop(){
+function gameLoop() {
   clear();
 }
 
@@ -68,6 +69,6 @@ function clear() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function init(){
+function init() {
   return setInterval(gameLoop, 30);
 }
