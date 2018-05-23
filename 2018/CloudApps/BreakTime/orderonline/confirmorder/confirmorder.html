@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Break Time | Confirm Your Order</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+<body>
+    <!--Text at top - Order Confirmation-->
+    <div id="orderText" class="order">
+        <h1>Order Confirmation</h1><br>
+        <p>
+            Please confirm your order by filling in your details below (required), checking your order is correct, and by clicking 'Confirm My Order'.
+        </p><br>
+        <form id="userConfirmation">
+            <span class="userConfirmText">Name:</span><br>
+            <input class="userConfirmation" type="text" name="name" required/><span class="required">*</span><br>
+            <span class="userConfirmText">Email:</span><br>
+            <input class="userConfirmation" type="text" name="email" required/><span class="required">*</span><br>
+            <span class="userConfirmText">Staff Discount: (Optional)</span><br>
+            <input class="userConfirmation" type="text" name="discount"/>
+            <input class="userConfirmation userConfirmationButton" type="button" value="Add Discount" name="addDiscount"/><br>
+            <input class="userConfirmation userConfirmationButton" type="button" value="Confirm My Order" name="confirmMyOrder"/><br>
+        </form>
+    </div>
+
+    <!-- User's Order Bag container-->
+    <div id="orderBag" class="order">
+        <h1>Your Order</h1><br>
+        <p id="order"></p>
+    </div>
+    
+    <script type="text/javascript" src="../../script.js"></script>
+</body>
+</html>

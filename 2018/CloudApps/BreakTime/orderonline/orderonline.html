@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Break Time | Order Online | Place Your Order</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+    <!--Text at top - How to Order-->
+    <div id="orderText" class="order">
+        <h1>How To Order:</h1><br>
+        <p>
+            Choose the items you wish to purchase below (10 items max), which will then be added to your order bag.
+        </p>
+    </div>
+    
+    <!-- Order form - Display of different coffee-->
+    <div id="orderForm">
+        <div id="coffee">
+            
+            <!--Coffee item 1-->
+            <div class="coffeeItem">
+                <div onclick="xCrossExit()" class="xCross">x</div>
+                <p class="productText productTitle">Cappuchino</p>
+                <p class="productText productPrice">$<span class="price">6</span></p>
+                <img class="coffeeImg" src="../images/cappuchino.jpg"/>
+                <div class="customizeOrder">
+                    <input class="addCream" onclick="addCream()" type="checkbox" name="addCream" value="Cream"><p>Add Cream (+$1.00)</p><br>
+                    <input class="addMarshmallows" onclick="addMarshmallows()" type="checkbox" name="addMarshmallows" value="Marshmallows"><p>Add Marshmallows (+$1.00)</p><br>
+                    <input class="addSoy" onclick="addSoy()" type="checkbox" name="useSoyMilk" value="SoyMilk"><p>Use Soy Milk (+$1.00)</p><br>
+                    <input onclick="addItem()" class="productSelectButton" type="submit" value="Add To Order">
+                </div>
+            </div>
+            
+            <!--Coffee item 2-->
+            <div class="coffeeItem">
+                <div onclick="xCrossExit()" class="xCross">x</div>
+                <p class="productText productTitle">Espresso</p>
+                <p class="productText productPrice">$<span class="price">5</span></p>
+                <img class="coffeeImg" src="../images/espresso.jpg"/>
+                <div class="customizeOrder">
+                    <input class="addCream" onclick="addCream()" type="checkbox" name="addCream" value="Cream"><p>Add Cream (+$1.00)</p><br>
+                    <input class="addMarshmallows" onclick="addMarshmallows()" type="checkbox" name="addMarshmallows" value="Marshmallows"><p>Add Marshmallows (+$1.00)</p><br>
+                    <input class="addSoy" onclick="addSoy()" type="checkbox" name="useSoyMilk" value="SoyMilk"><p>Use Soy Milk (+$1.00)</p><br>
+                    <input onclick="addItem()" class="productSelectButton" type="submit" value="Add To Order">
+                </div>
+            </div>
+            
+            <!--Coffee item 3-->
+            <div class="coffeeItem">
+                <div onclick="xCrossExit()" class="xCross">x</div>
+                <p class="productText productTitle">Flat White</p>
+                <p class="productText productPrice">$<span class="price">6</span></p>
+                <img class="coffeeImg" src="../images/flatwhite.jpg"/>
+                <div class="customizeOrder">
+                    <input class="addCream" onclick="addCream()" type="checkbox" name="addCream" value="Cream"><p>Add Cream (+$1.00)</p><br>
+                    <input class="addMarshmallows" onclick="addMarshmallows()" type="checkbox" name="addMarshmallows" value="Marshmallows"><p>Add Marshmallows (+$1.00)</p><br>
+                    <input class="addSoy" onclick="addSoy()" type="checkbox" name="useSoyMilk" value="SoyMilk"><p>Use Soy Milk (+$1.00)</p><br>
+                    <input onclick="addItem()" class="productSelectButton" type="submit" value="Add To Order">
+                </div>
+            </div>
+            
+            <!--Coffee item 4-->
+            <div class="coffeeItem">
+                <div onclick="xCrossExit()" class="xCross">x</div>
+                <p class="productText productTitle">Latte</p>
+                <p class="productText productPrice">$<span class="price">5</span></p>
+                <img class="coffeeImg" src="../images/latte.jpg"/>
+                <div class="customizeOrder">
+                    <input class="addCream" onclick="addCream()" type="checkbox" name="addCream" value="Cream"><p>Add Cream (+$1.00)</p><br>
+                    <input class="addMarshmallows" onclick="addMarshmallows()" type="checkbox" name="addMarshmallows" value="Marshmallows"><p>Add Marshmallows (+$1.00)</p><br>
+                    <input class="addSoy" onclick="addSoy()" type="checkbox" name="useSoyMilk" value="SoyMilk"><p>Use Soy Milk (+$1.00)</p><br>
+                    <input onclick="addItem()" class="productSelectButton" type="submit" value="Add To Order">
+                </div>
+            </div>
+            
+            <!--Coffee item 5-->
+            <div class="coffeeItem">
+                <div onclick="xCrossExit()" class="xCross">x</div>
+                <p class="productText productTitle">Long Black</p>
+                <p class="productText productPrice">$<span class="price">4</span></p>
+                <img class="coffeeImg" src="../images/longblack.jpg"/>
+                <div class="customizeOrder">
+                    <input class="addCream" onclick="addCream()" type="checkbox" name="addCream" value="Cream"><p>Add Cream (+$1.00)</p><br>
+                    <input class="addMarshmallows" onclick="addMarshmallows()" type="checkbox" name="addMarshmallows" value="Marshmallows"><p>Add Marshmallows (+$1.00)</p><br>
+                    <input class="addSoy" onclick="addSoy()" type="checkbox" name="useSoyMilk" value="SoyMilk"><p>Use Soy Milk (+$1.00)</p><br>
+                    <input onclick="addItem()" class="productSelectButton" type="submit" value="Add To Order">
+                </div>
+            </div>
+            
+            <!--Coffee item 6-->
+            <div class="coffeeItem">
+                <div onclick="xCrossExit()" class="xCross">x</div>
+                <p class="productText productTitle">Macchiato</p>
+                <p class="productText productPrice">$<span class="price">7</span></p>
+                <img class="coffeeImg" src="../images/macchiato.jpg"/>
+                <div class="customizeOrder">
+                    <input class="addCream" onclick="addCream()" type="checkbox" name="addCream" value="Cream"><p>Add Cream (+$1.00)</p><br>
+                    <input class="addMarshmallows" onclick="addMarshmallows()" type="checkbox" name="addMarshmallows" value="Marshmallows"><p>Add Marshmallows (+$1.00)</p><br>
+                    <input class="addSoy" onclick="addSoy()" type="checkbox" name="useSoyMilk" value="SoyMilk"><p>Use Soy Milk (+$1.00)</p><br>
+                    <input onclick="addItem()" class="productSelectButton" type="submit" value="Add To Order">
+                </div>
+            </div>
+            
+            <!--Coffee item 7-->
+            <div class="coffeeItem">
+                <div onclick="xCrossExit()" class="xCross">x</div>
+                <p class="productText productTitle">Mochaccino</p>
+                <p class="productText productPrice">$<span class="price">7</span></p>
+                <img class="coffeeImg" src="../images/mochaccino.jpg"/>
+                <div class="customizeOrder">
+                    <input class="addCream" onclick="addCream()" type="checkbox" name="addCream" value="Cream"><p>Add Cream (+$1.00)</p><br>
+                    <input class="addMarshmallows" onclick="addMarshmallows()" type="checkbox" name="addMarshmallows" value="Marshmallows"><p>Add Marshmallows (+$1.00)</p><br>
+                    <input class="addSoy" onclick="addSoy()" type="checkbox" name="useSoyMilk" value="SoyMilk"><p>Use Soy Milk (+$1.00)</p><br>
+                    <input onclick="addItem()" class="productSelectButton" type="submit" value="Add To Order">
+                </div>
+            </div>
+            
+            <!--Coffee item 8-->
+            <div class="coffeeItem">
+                <div onclick="xCrossExit()" class="xCross">x</div>
+                <p class="productText productTitle">Hot Chocolate</p>
+                <p class="productText productPrice">$<span class="price">6</span></p>
+                <img class="coffeeImg" src="../images/hotchocolate.jpg"/>
+                <div class="customizeOrder">
+                    <input class="addCream" onclick="addCream()" type="checkbox" name="addCream" value="Cream"><p>Add Cream (+$1.00)</p><br>
+                    <input class="addMarshmallows" onclick="addMarshmallows()" type="checkbox" name="addMarshmallows" value="Marshmallows"><p>Add Marshmallows (+$1.00)</p><br>
+                    <input class="addSoy" onclick="addSoy()" type="checkbox" name="useSoyMilk" value="SoyMilk"><p>Use Soy Milk (+$1.00)</p><br>
+                    <input onclick="addItem()" class="productSelectButton" type="submit" value="Add To Order">
+                </div>
+            </div>
+            
+            <!--Coffee item 9-->
+            <div class="coffeeItem">
+                <div onclick="xCrossExit()" class="xCross">x</div>
+                <p class="productText productTitle">Tea</p>
+                <p class="productText productPrice">$<span class="price">4</span></p>
+                <img class="coffeeImg" src="../images/tea.jpg"/>
+                <div class="customizeOrder">
+                    <input class="addCream" onclick="addCream()" type="checkbox" name="addCream" value="Cream"><p>Add Cream (+$1.00)</p><br>
+                    <input class="addMarshmallows" onclick="addMarshmallows()" type="checkbox" name="addMarshmallows" value="Marshmallows"><p>Add Marshmallows (+$1.00)</p><br>
+                    <input class="addSoy" onclick="addSoy()" type="checkbox" name="useSoyMilk" value="SoyMilk"><p>Use Soy Milk (+$1.00)</p><br>
+                    <input onclick="addItem()" class="productSelectButton" type="submit" value="Add To Order">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Order Bag container-->
+    <div id="orderBag" class="order">
+        <h1>Your Order Bag</h1><br>
+        
+        <!--Order Bag table-->
+        <table id="table">
+            <tr style="font-weight:bold;">
+                <td>Remove Item</td>
+                <td>Item/s</td>
+                <td>Price</td>
+            </tr>
+            <tr class="addRow">
+                <td id="tableData" colspan="3">You have not added any items yet.</td>
+                
+            </tr>
+        </table>
+        
+        <!-- Total Price displayed -->
+        <p id="totalPrice">Your total price is $<span id="total"></span></p>
+        <Button id="confirm"><a href="confirmorder/confirmorder.html">Finish my Order</a></Button>
+    </div>
+    
+    <script type="text/javascript" src="../script.js"></script>
+</body>
+</html>
