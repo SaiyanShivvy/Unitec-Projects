@@ -5,7 +5,6 @@ var ctx = canvas.getContext("2d");
 //Game Variables
 var gameOver = false; //if the game over condition has been met
 var seeds = []; //stores seeds
-var gameOver = false;
 var player = {
   x: 0,
   y: 0,
@@ -57,6 +56,27 @@ function drawChar() {
   if (srcX >= 7416) {
     srcX = 0;
   }
+}
+
+function Circle(radius, speed, width, xPos, yPos){
+  this.radius = radius;
+  this.speed = speed;
+  this.width = width;
+  this.xPos = xPos;
+  this.yPos = yPos;
+
+  this.counter = 0;
+
+  var signHelper = Math.floor(Math.random() * 2);
+  if (signHelper == 1){
+    this.sign = -1;
+  } else {
+    this.sign = 1;
+  }
+}
+
+Circle.prototype.update = function() {
+  this.counter += this.sign * this.speed;
 }
 
 //------------------------------------------------------------//
