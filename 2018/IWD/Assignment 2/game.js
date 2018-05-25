@@ -4,7 +4,6 @@ var ctx = canvas.getContext("2d");
 //------------------------------------------------------------//
 //Game Variables
 var gameOver = false;
-var seeds = [];
 var keys = [];
 var player = {
   x: 0,
