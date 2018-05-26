@@ -3,12 +3,15 @@
 - Part 1
   - [ ] UI Sprucing
   - [ ] Persistent Storage for Temp Booking?
+  - [ ] Wordpress server bs
 - Part 2
   - [ ] Basic Shit
   - [ ] Character Controls
-  - [ ] Seed Spawning
+  - [x] Seed Spawning
+    - [ ] Need support for multiple seed spawning, and recreating a new seed when one is eaten or goes off screen.
   - [ ] Radiant Gradient for Colour Change
-  - [ ] 6px to 24px transform
+  - [x] 6px to 24px transform
+    - [ ] Refactoring need for this task, does however grow then move, may need a timer
   - [ ] Collision
   - [ ] Sound
   - [ ] Sprite Animation?
