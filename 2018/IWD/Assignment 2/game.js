@@ -56,6 +56,8 @@ function drawChar() {
 }
 //------------------------------------------------------------//
 //Object - Circle
+var growth = 0.5;
+
 function Seed(x, y, dy, radius, color) {
   this.x = x;
   this.y = y;
@@ -63,26 +65,36 @@ function Seed(x, y, dy, radius, color) {
   this.radius = radius;
   this.color = color;
 
+
+
   this.update = function() {
-    // if (this.radius == 24px){
-    //   this.dy =- dy;
-    // } else {
-    //   this.radius =+ 2;
-    // }
-    //increase speed
-    if (this.y + this.radius + this.dy < canvas.height) {
-			this.dy =+ 1;
-		} else {
-			this.dy =- 2;
+    // Check if its off the canvas
+    if (this.y + this.radius + this.dy <= canvas.height) {
+      this.dy = -2; //this.dy -= 2;
 		}
-		this.y += this.dy;
+    //check if its 'fully grown'
+    if (this.radius <= 60){
+      this.radius += growth;
+    }
+    else {
+      //if its 'mature' then move it
+      this.y += this.dy;
+    }
+    //redraw it
 		this.draw();
   }
 
   this.draw = function() {
+    var rg = ctx.createRadialGradient(10,10,10,10,10,100);
+    //rg.addColorStop(0, "green");
+    rg.addColorStop(0, 'red');
+    //rg.addColorStop(0.4, "red");
+    //rg.addColorStop(0.6, "red");
+    //rg.addColorStop(1, "green");
+
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    ctx.fillStyle = "red"; //radial gradient here
+    ctx.fillStyle = rg; //radial gradient here
     ctx.fill();
     ctx.closePath();
   }
@@ -92,7 +104,7 @@ function Seed(x, y, dy, radius, color) {
 var seed;
 var seedArray = [];
 function init() {
-  seed = new Seed(canvas.width/2, canvas.height/2, 2, 30, '30');
+  seed = new Seed(300, 300, 0, 6, '30');
   seedArray.push(seed);
   console.log(seed);
 }
