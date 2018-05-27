@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- NOTE: GAME CONTEXT: You are a bird, and your goal is to collect seeds 
+<!-- NOTE: GAME CONTEXT: You are a bird, and your goal is to collect seeds
   in your beak (+1 score), if it touch any other part of the body (-1 score).
   Seeds; grow from 6px to 24px and change colour green to red.
   Bird; left, up, right, down for movement.
@@ -30,10 +30,13 @@
       </li>
     </ul>
   </div>
-  
+
   <div id="canvasDiv">
     <canvas id="gameCanvas" width="800px" height="600px" style="background: url('./src/assets/sky.jpg')"></canvas>
     <script type="text/javascript" src="game.js"></script>
+  </div>
+  <div id="sideBar">
+    <input type="button" value="Start" id="btnGameStart" onclick="init()"/>
   </div>
 </body>
 

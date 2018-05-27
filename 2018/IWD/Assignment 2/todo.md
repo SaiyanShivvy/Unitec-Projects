@@ -15,3 +15,9 @@
   - [ ] Collision
   - [ ] Sound
   - [ ] Sprite Animation?
+
+
+Currently fixing:
+  - [ ] Speed issue when creating new seeds
+  - [ ] staggered spawning
+  - [ ] framerate issue
