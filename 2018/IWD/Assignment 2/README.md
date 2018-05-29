@@ -6,6 +6,9 @@ http://dochyper.unitec.ac.nz/iwd18s1/2379/achars05IWD/wordpress/
 # Instructions
 Its an HTML file nothing special, just load index.html.
 
+## Notes:
+Documentation holds the Checkpoint 1, and 2 docs.
+
 ### Bug and other known issues:
 - Game is currently not work
 - Booking isn't completetly done - Refactoring is planned.
