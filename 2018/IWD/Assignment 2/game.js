@@ -56,6 +56,7 @@ function Seed(x, y, dy, radius, color) {
         console.log("reached top");
         seedArray.shift();
         console.log(seedArray);
+        //createSeed();
         // if (seedArray.length < 1){
         //   createSeed();
         //   console.log(this.dy);
@@ -99,11 +100,11 @@ function init() {
 }
 
 function createSeed(){
-  for (let i = 0; i < 3; i++){
-    seed = new Seed(randomIntFromRange(50, 750), randomIntFromRange(500, 550), 0, 6, '30');
-    seedArray.push(seed);
-    console.log(seed);
-  }
+  clearInterval(SI);
+  seed = new Seed(randomIntFromRange(50, 750), randomIntFromRange(500, 550), 0, 6, '30');
+  seedArray.push(seed);
+  console.log(seed);
+  var SI = setInterval(limitLoop(createSeed(), 60), 30);
   limitLoop(animate(), 60);
 }
 
