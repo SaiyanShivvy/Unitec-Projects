@@ -5,7 +5,7 @@
   - [ ] Persistent Storage for Temp Booking?
   - [ ] Wordpress server bs
 - Part 2
-  - [ ] Basic Shit
+  - [ ] Basic Stuff
   - [ ] Character Controls
   - [x] Seed Spawning
     - [ ] Need support for multiple seed spawning, and recreating a new seed when one is eaten or goes off screen.
