@@ -190,19 +190,19 @@
     </seat>
     <seat>
         <id>15</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>4</row>
         <price>25</price>
     </seat>
     <seat>
         <id>16</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>4</row>
         <price>25</price>
     </seat>
     <seat>
         <id>17</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>4</row>
         <price>25</price>
     </seat>
@@ -306,13 +306,13 @@
     </seat>
     <seat>
         <id>31</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>6</row>
         <price>20</price>
     </seat>
     <seat>
         <id>32</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>6</row>
         <price>20</price>
     </seat>
@@ -367,7 +367,7 @@
     </seat>
     <seat>
         <id>40</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>7</row>
         <price>20</price>
     </seat>
@@ -379,25 +379,25 @@
     </seat>
     <seat>
         <id>41</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>7</row>
         <price>20</price>
     </seat>
     <seat>
         <id>42</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>7</row>
         <price>20</price>
     </seat>
     <seat>
         <id>43</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>7</row>
         <price>20</price>
     </seat>
     <seat>
         <id>44</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>7</row>
         <price>20</price>
     </seat>
@@ -422,7 +422,7 @@
     </seat>
     <seat>
         <id>48</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>8</row>
         <price>20</price>
     </seat>
@@ -434,7 +434,7 @@
     </seat>
     <seat>
         <id>49</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>8</row>
         <price>20</price>
     </seat>
@@ -477,7 +477,7 @@
     </seat>
     <seat>
         <id>56</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>9</row>
         <price>20</price>
     </seat>
@@ -489,7 +489,7 @@
     </seat>
     <seat>
         <id>57</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>9</row>
         <price>20</price>
     </seat>
@@ -514,13 +514,13 @@
     <!-- Row 10 - Seat Price: $20 -->
     <seat>
         <id>61</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>10</row>
         <price>20</price>
     </seat>
     <seat>
         <id>62</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>10</row>
         <price>20</price>
     </seat>
@@ -532,7 +532,7 @@
     </seat>
     <seat>
         <id>64</id>
-        <isBooked>no</isBooked>
+        <isBooked>yes</isBooked>
         <row>10</row>
         <price>20</price>
     </seat>

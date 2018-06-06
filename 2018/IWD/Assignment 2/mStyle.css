@@ -11,7 +11,7 @@
 }
 
 .booked {
-  background-color: gray;
+  background-color: #1F75FE;
 }
 
 .walk {
@@ -19,7 +19,11 @@
   padding-right: 10px;
 }
 
-/* HTML STYLES */
+.localBook {
+  background-color: yellow;
+}
+
+/* HTML STYLES
 #navbar ul {
   margin: 0;
   padding: 5px;
@@ -42,8 +46,10 @@
 #navbar ul li a:hover {
   color: #000;
   background-color: #fff;
-}
+} */
 
 .booking-details {
 
 }
+
+

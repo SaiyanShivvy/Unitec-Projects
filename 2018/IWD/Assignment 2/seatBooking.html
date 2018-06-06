@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- TODO: Move Inline Script functions to external seats.js -->
+<!-- TODO: Make the refreshing of the total easier -->
+<!-- TODO: locally persist booking data better -->
+<!-- TODO: Do the Game -->
+
+<!-- NOTE: Seat constains a class which is derivative of there layout, so you can check against that for if it from a certain boat layout -->
+<!-- NOTE: This allows for resuing for functions instead of writing multiple doing the same thing -->
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[IWD] Assignment 2 - Seat Booking</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="seats.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="mStyle.css">
+</head>
+
+<body>
+  <script type="text/javascript" src="booking.js"></script>
+
+  <div id="navbar">
+    <ul>
+      <li>
+        <a href="index.html">Seat Booking</a>
+      </li>
+      <li>
+        <a href="game.html">Game</a>
+      </li>
+      <li>
+        <a href="http://dochyper.unitec.ac.nz/iwd18s1/2379/achars05IWD/wordpress/">Wordpress</a>
+      </li>
+    </ul>
+  </div>
+
+  <h1>Rose Layout</h1>
+  <div class="wrapper">
+    <div class="container">
+      <!-- Seats -->
+      <button type="button" onclick="display_rose()">Rose Boat</button>
+      <button type="button" onclick="display_Princess()">Princess Boat</button>
+      <table border='1' id="roseLayout"></table>
+      <br />
+      <table border='1' id="princessLayout"></table>
+
+      <!-- Bokking Details -->
+      <div class="booking-details">
+        <h2>Booking Details</h2>
+        <h4>Time:
+          <!-- <input id="datetime" type="datetime-local"> -->
+          <select id="DateTime">
+            <option value="date1">18 May 2017 - 10:30 AM</option>
+            <option value="date2" selected>18 May 2017 - 12:30 PM</option>
+            <option value="date3">18 May 2017 - 2:30 PM</option>
+          </select>
+        </h4>
+        <h4>Seat:
+          <span id="seatInfo"></span>
+        </h4>
+        <h4>Price:
+          <span id="seatPrice"></span>
+        </h4>
+        <h3> Selected Seats:
+          <span id="counter"></span>
+        </h3>
+        <ul id="selected-seats"></ul>
+        Total:
+        <b>$
+          <span id="total">0</span>
+        </b>
+        <button id="book" onclick="bookSelected()">Book</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
