@@ -200,7 +200,7 @@ function bookSelected(table){
 }
 
 // Displaying the Layouts
-function display_rose() {
+function display_Rose() {
     var table = document.getElementById('roseLayout');
     var numRows = 9;
     var numCol = 9;
@@ -266,4 +266,12 @@ function display_Princess() {
         }
     }
     table.appendChild(row);
+}
+
+function loadPrincess(){
+    document.getElementById('bookingFrame').src = "princess.html";
+}
+
+function loadRose() {
+    document.getElementById('bookingFrame').src = "rose.html";
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="mStyle.css">
+    <script type="text/javascript" src="booking.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <!-- Seats -->
+            <button type="button" onclick="display_Princess()">View Layout</button>
+            <table border='1' id="princessLayout"></table>
+
+            <!-- Bokking Details -->
+            <div class="booking-details">
+                <h2>Booking Details</h2>
+                <h4>Time:
+                    <!-- <input id="datetime" type="datetime-local"> -->
+                    <select id="DateTime">
+                        <option value="date1">18 May 2017 - 10:30 AM</option>
+                        <option value="date2" selected>18 May 2017 - 12:30 PM</option>
+                        <option value="date3">18 May 2017 - 2:30 PM</option>
+                    </select>
+                </h4>
+                <h4>Seat:
+                    <span id="seatInfo"></span>
+                </h4>
+                <h4>Price:
+                    <span id="seatPrice"></span>
+                </h4>
+                <h3> Selected Seats:
+                    <span id="counter"></span>
+                </h3>
+                <ul id="selected-seats"></ul>
+                Total:
+                <b>$
+                    <span id="total">0</span>
+                </b>
+                <button id="book" onclick="bookSelected()">Book</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
