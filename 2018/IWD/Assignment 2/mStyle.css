@@ -19,11 +19,15 @@
   padding-right: 10px;
 }
 
-.localBook {
+.userBooked {
   background-color: yellow;
 }
 
 /* HTML STYLES */
+body {
+  background-color: #F5F1ED;
+}
+
 .fluidMedia {
   position: relative;
   padding-bottom: 56.25%;
@@ -39,6 +43,43 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.bg-cover {
+  background-image: url('src/taupo.jpg');
+  background-size: cover;
+  color: white;
+  background-position: center center;
+  position: relative;
+  z-index: -2;
+}
+
+.jumbotron {
+  text-align: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  text-shadow: 2px 2px #000;
+}
+
+.overlay {
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.lead span {
+  color: orange;
+  font-weight: bold;
+}
+
+.navbar {
+  top: 0;
+  margin: 0;
 }
 
 .booking-details {

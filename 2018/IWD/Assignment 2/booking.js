@@ -84,7 +84,7 @@ function selectSeat(cell) {
     var liCart = document.createElement("li");
     var rmCart;
     if (cell.classList.contains("rose")) {
-        if (cell.classList.contains("booked")) {
+        if (cell.classList.contains("booked") || cell.classList.contains("userBooked")) {
             alert("Sorry, bud. You were to slow and this seat " + cell.id + " is now booked.")
         } else if (cell.classList.contains('selected')) {
             cell.classList.toggle("selected");
@@ -100,7 +100,7 @@ function selectSeat(cell) {
             //console.log(cell);
         }
     } else if (cell.classList.contains("princess")) {
-        if (cell.classList.contains("booked")) {
+        if (cell.classList.contains("booked") || cell.classList.contains("userBooked")) {
             alert("Sorry, bud. You were to slow and this seat " + cell.id + " is now booked.")
         } else if (cell.classList.contains('selected')) {
             cell.classList.toggle("selected");
@@ -190,12 +190,66 @@ function calcTotal(boat) {
     return nTotal;
 }
 
-function bookSelected(table){
-    if (table == "roseLayout"){
-        console.log(table);
-    }
-    else if (table == "princessLaybout"){
-        console.log(table);
+function bookSelected(boat) {
+    var sTotal = 0;
+    var cTotal = 0;
+    if (boat == "rose") {
+        //console.log(boat);
+        var selected = document.getElementsByClassName('rose');
+        for (var i = 0; i < selected.length; i++) {
+            if (selected[i].classList.contains("selected")) {
+                sTotal += 1;
+                // console.log(sTotal);                
+            }
+        }
+        cTotal = calcTotal("rose");
+        //console.log("Total Selected Seats: " + sTotal);
+        //console.log("Total Price is: " + cTotal);
+        if (confirm("You have selected " + sTotal + " seats, Total Price is: $" + cTotal + ". Confirm Booking?")) {
+            for (var i = 0; i < selected.length; i++) {
+                if (selected[i].classList.contains("selected")) {
+                    selected[i].classList.toggle("userBooked");
+                    selected[i].classList.toggle("selected");
+                    // console.log(selected[i]);
+                    var idLoc = seatRose.findIndex(o => o.id === selected[i].id);
+                    // console.log(idLoc);
+                    seatRose[idLoc].isBooked = "yes";
+                    // console.log(seatRose[idLoc]);
+                }
+            }
+        } else {
+            //DO NOTHING
+            console.log("Error has occured, which is funny cause there shouldn't be")
+        }
+    } else if (boat == "princess") {
+        //console.log(boat);
+        var selected = document.getElementsByClassName('princess');
+        for (var i = 0; i < selected.length; i++) {
+            if (selected[i].classList.contains("selected")) {
+                sTotal += 1;
+                // console.log(sTotal);                
+            }
+        }
+        cTotal = calcTotal("princess");
+        //console.log("Total Selected Seats: " + sTotal);
+        //console.log("Total Price is: " + cTotal);
+        if (confirm("You have selected " + sTotal + " seats, Total Price is: $" + cTotal + ". Confirm Booking?")) {
+            for (var i = 0; i < selected.length; i++) {
+                if (selected[i].classList.contains("selected")) {
+                    selected[i].classList.toggle("userBooked");
+                    selected[i].classList.toggle("selected");
+                    // console.log(selected[i]);
+                    //fix from stackoverflow, by georg https://stackoverflow.com/questions/15997879/get-the-index-of-the-object-inside-an-array-matching-a-condition
+                    var idLoc = seatPrincess.findIndex(o => o.id === selected[i].id); 
+                    // console.log(idLoc);
+                    seatPrincess[idLoc].isBooked = "yes";
+                    // console.log(seatRose[idLoc]);
+                }
+            }
+        } else {
+            //DO NOTHING
+            console.log("Error has occured, which is funny cause there shouldn't be")
+        }
     }
 }
 
@@ -268,7 +322,7 @@ function display_Princess() {
     table.appendChild(row);
 }
 
-function loadPrincess(){
+function loadPrincess() {
     document.getElementById('bookingFrame').src = "princess.html";
 }
 
