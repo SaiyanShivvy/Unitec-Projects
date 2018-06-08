@@ -15,6 +15,8 @@
   <title>[IWD] Assignment 2 - Seat Booking</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- <script type="text/javascript" src="seats.js"></script> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="mStyle.css">
 </head>
 
@@ -32,18 +34,33 @@
       </li>
     </ul>
   </div> -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+      <h1 class="display-4">Seat Booking</h1>
+      <hr class="my-4">
+      <p class="lead"></p>
+    </div>
+  </div>
 
-  <script type="text/javascript" src="booking.js"></script>
-
-
-  <h1>Seat Booking</h1>
-  <button type="button" onclick="loadPrincess()">Princess Boat</button>
-  <button type="button" onclick="loadRose()">Rose Boat</button>
+  <div class="text-center">
+    <button type="button" class="btn btn-outline-primary" onclick="loadPrincess()">Princess Boat</button>
+    <button type="button" class="btn btn-outline-primary" onclick="loadRose()">Rose Boat</button>
+  </div>
 
   <div class="fluidMedia">
     <br>
     <iframe src="" id="bookingFrame" name="bookingFrame" frameborder="0"></iframe>
   </div>
+
+  <!-- Booking Script -->
+  <script type="text/javascript" src="booking.js"></script>
+  <!-- Bootstrap 4 JS Files, PopperJS and JQuery-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

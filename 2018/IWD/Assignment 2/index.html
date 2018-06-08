@@ -10,20 +10,26 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="mStyle.css">
     <title>[IWD] Assignment 2 - Home</title>
+    <script>
+        $(".nav .nav-link").on("click", function () {
+            $(".nav").find(".active").removeClass("active");
+            $(this).addClass("active");
+        });
+    </script>
 </head>
 
 <body>
-    <div class="jumbotron jumbotron bg-cover">
+    <div class="jumbotron jumbotron-custom bg-cover">
         <div class="overlay"></div>
         <div class="container text-center">
-            <h1 class="display-4">Taupo Boat Adventure</h1>
+            <h1 class="display-2">Taupo Boat Adventure</h1>
             <hr class="my-4">
             <p class="lead">Assignment 2</p>
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <ul class="nav nav-pills">
+    <nav class="navbar sticky-top navbar-dark bg-dark justify-content-center">
+        <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
                 <a class="nav-link" href="seatBooking.html" target="contentFrame">Book Seats</a>
             </li>
@@ -39,7 +45,7 @@
     <div class="fluidMedia">
         <iframe src="" name="contentFrame"></iframe>
     </div>
-    
+
     <footer class="container-fluid text-center">
         <p>Made by Shivneel Achari</p>
         <p>Internet and Website Development</p>
