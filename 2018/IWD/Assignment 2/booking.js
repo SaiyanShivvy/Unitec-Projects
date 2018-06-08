@@ -50,6 +50,7 @@ function createRoseSeat(xmlhttp) {
         var newSeat = new seat(sID, sRow, sBook, sPrice);
         seatRose[i] = newSeat;
     }
+    display_Rose();
 }
 
 function createPrincessSeat(xmlhttp) {
@@ -70,6 +71,7 @@ function createPrincessSeat(xmlhttp) {
         var newSeat = new seat(sID, sRow, sBook, sPrice);
         seatPrincess[i] = newSeat;
     }
+    display_Princess();
 }
 
 //Init
