@@ -1,8 +1,10 @@
 ## TODO List for IWD Project 2
 
 - Part 1
-  - [ ] UI Sprucing
-  - [ ] Persistent Storage for Temp Booking?
+  - [x] UI Sprucing
+   - [ ] Needs further attention, in booking section.
+  - [x] Persistent Storage for Temp Booking?
+   - [x] Temp storage, rewrting data to array, refresh table is next if possible.
   - [ ] Wordpress server bs
 - Part 2
   - [ ] Basic Stuff

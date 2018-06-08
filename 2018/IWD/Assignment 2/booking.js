@@ -221,7 +221,7 @@ function bookSelected(boat) {
             }
         } else {
             //DO NOTHING
-            console.log("Error has occured, which is funny cause there shouldn't be")
+            console.log("Rose Error")
         }
     } else if (boat == "princess") {
         //console.log(boat);
@@ -233,9 +233,9 @@ function bookSelected(boat) {
             }
         }
         cTotal = calcTotal("princess");
-        //console.log("Total Selected Seats: " + sTotal);
-        //console.log("Total Price is: " + cTotal);
-        if (confirm("You have selected " + sTotal + " seats, Total Price is: $" + cTotal + ". Confirm Booking?")) {
+        console.log("Total Selected Seats: " + sTotal);
+        console.log("Total Price is: " + cTotal);
+        if (confirm("You have selected " + sTotal + " seat(s), Total Price is: $" + cTotal + ". Confirm Booking?")) {
             for (var i = 0; i < selected.length; i++) {
                 if (selected[i].classList.contains("selected")) {
                     selected[i].classList.toggle("userBooked");
@@ -250,7 +250,7 @@ function bookSelected(boat) {
             }
         } else {
             //DO NOTHING
-            console.log("Error has occured, which is funny cause there shouldn't be")
+            console.log("Princess Error");
         }
     }
 }

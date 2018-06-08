@@ -25,31 +25,34 @@
                 <div class="col-sm">
                     <!-- Bokking Details -->
                     <div class="booking-details">
-                        <h2>Booking Details</h2>
-                        <h4>Time:
-                            <!-- <input id="datetime" type="datetime-local"> -->
-                            <select id="DateTime">
-                                <option value="date1">18 May 2017 - 10:30 AM</option>
-                                <option value="date2" selected>18 May 2017 - 12:30 PM</option>
-                                <option value="date3">18 May 2017 - 2:30 PM</option>
-                            </select>
-                        </h4>
-                        <h4>Seat:
+                        <h3>Booking Details</h3>
+                        <label for="DateTime">Select a Time:</label>
+                        <!-- <input id="datetime" type="datetime-local"> -->
+                        <select id="DateTime" class="form-control">
+                            <option value="date1">18 May 2017 - 10:30 AM</option>
+                            <option value="date2" selected>18 May 2017 - 12:30 PM</option>
+                            <option value="date3">18 May 2017 - 2:30 PM</option>
+                        </select>
+                        <p>Seat:
                             <span id="seatInfo"></span>
-                        </h4>
-                        <h4>Price:
+                        </p>
+                        <p>Price:
                             <span id="seatPrice"></span>
-                        </h4>
-                        <h3> Selected Seats:
+                        </p>
+                        <p> Selected Seats:
                             <span id="counter"></span>
-                        </h3>
+                        </p>
                         <ul id="selected-seats"></ul>
                         Total:
                         <b>$
                             <span id="total">0</span>
                         </b>
-                        <button id="book" onclick="bookSelected('rose')">Book</button>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md text-center">
+                    <button id="book" class="btn btn-outline-primary" onclick="bookSelected('rose')">Book</button>
                 </div>
             </div>
         </div>
