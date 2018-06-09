@@ -46,11 +46,12 @@ function Seed(x, y, dy, radius, color) {
   this.radius = radius;
   this.color = color;
 
-  var rg = ctx.createRadialGradient(x, y, radius, x, y, 24);
-  var growth = 0.5;
+  var rg = ctx.createRadialGradient(x, y, radius, x, y+dy, 24);
+  rg.addColorStop(0, 'green');
+  var growth = 0.25;
 
 
-  this.update = function () {
+  this.update = function() {
     // Check if its off the canvas
     if (this.y + this.radius + this.dy <= canvas.height) {
       this.dy = -1.4; //this.dy -= 2;
@@ -59,7 +60,6 @@ function Seed(x, y, dy, radius, color) {
         seedArray.shift();
         console.log(seedArray);
         if (seedArray.length < 1) {
-          //   // console.log(seedArray);
           animate();
         }
       }
@@ -67,26 +67,31 @@ function Seed(x, y, dy, radius, color) {
     //check if its 'fully grown'
     if (this.radius <= 24) {
       this.radius += growth;
-      rg.addColorStop(0.5, 'red');
+      rg.addColorStop(growth, 'red');
       this.color = rg;
     } else {
       //if its 'mature' then move it
       this.y += this.dy;
-      rg.addColorStop(1, 'red');
-      this.color = rg;
       this.dy = 0;
     }
     //redraw it
     this.draw();
   }
 
-  this.draw = function () {;
-    rg.addColorStop(0, 'green');
+  this.draw = function() {;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
     ctx.fillStyle = rg; //radial gradient here
     ctx.fill();
     ctx.closePath();
+  }
+}
+
+function player(){
+  //redraw, cycle through animation frames, movement, collision detection.
+  this.updateFrame = function() {
+  }
+  this.draw = function(){
   }
 }
 //------------------------------------------------------------//
@@ -122,7 +127,8 @@ function animate() {
   //requestAnimationFrame(animate);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawGrass();
+
+  reDraw();
 
   if(seedArray.length < maxSeeds){
     createSeed();
@@ -141,6 +147,11 @@ function animate() {
 //ultilty functions
 function randomIntFromRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function reDraw(){
+  drawChar();
+  drawGrass();
 }
 
 function collisionDetect() {
