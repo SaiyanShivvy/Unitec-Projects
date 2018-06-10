@@ -4,16 +4,23 @@ var ctx = canvas.getContext("2d");
 //------------------------------------------------------------//
 //Game Variables
 var gameOver = false;
+//to be refactored into a class
 var player = {
   x: 0,
   y: 0,
-  width: 232,
-  height: 158,
+  width: 186,
+  height: 127,
   speed: 5,
   velX: 0,
-  velY: 0
+  velY: 0,
+  pressedKeys: {
+    left: false,
+    right: false,
+    up: false,
+    down: false
+  }
 }
-srcX = 0, srcY = 0;
+var srcX = 0, srcY = 0;
 //------------------------------------------------------------//
 var grass_Image = new Image();
 grass_Image.src = "src/assets/sample_grass.png";
@@ -36,7 +43,42 @@ function drawChar() {
   }
 }
 //------------------------------------------------------------//
+//Utility functions
+// generic way to set animation up
+window.requestAnimFrame = (function () {
+  return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
+      window.setTimeout(callback, 1000 / 60);
+    };
+})();
+
+function randomIntFromRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 //Key Handlers
+var keyMap = {
+  68: 'right',
+  65: 'left',
+  87: 'up',
+  83: 'down'
+}
+
+function keydown(event) {
+  var key = keyMap[event.keyCode]
+  player.pressedKeys[key] = true
+}
+
+function keyup(event) {
+  var key = keyMap[event.keyCode]
+  player.pressedKeys[key] = false
+}
+
+window.addEventListener("keydown", keydown, false)
+window.addEventListener("keyup", keyup, false)
 //------------------------------------------------------------//
 //Object - Circle
 function Seed(x, y, dy, radius, color) {
@@ -46,9 +88,9 @@ function Seed(x, y, dy, radius, color) {
   this.radius = radius;
   this.color = color;
 
-  var rg = ctx.createRadialGradient(x, y, radius, x, y+dy, 24);
-  rg.addColorStop(0, 'green');
   var growth = 0.25;
+  var rg = ctx.createRadialGradient(x + dy, y + dy, radius, x + dy, y + dy, 24);  
+  rg.addColorStop(growth, 'green');
 
 
   this.update = function() {
@@ -67,14 +109,14 @@ function Seed(x, y, dy, radius, color) {
     //check if its 'fully grown'
     if (this.radius <= 24) {
       this.radius += growth;
+      rg.addColorStop(growth, 'green');
+      this.color = rg;
       rg.addColorStop(growth, 'red');
       this.color = rg;
     } else {
       //if its 'mature' then move it
       this.y += this.dy;
-      this.dy = 0;
     }
-    //redraw it
     this.draw();
   }
 
@@ -122,12 +164,8 @@ function animate() {
   // How long between the current frame and the previous one ?
   delta = now - then;
   //console.log(delta);
-
-  //console.log(aniInt);
-  //requestAnimationFrame(animate);
-
+  
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
   reDraw();
 
   if(seedArray.length < maxSeeds){
@@ -144,10 +182,7 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-//ultilty functions
-function randomIntFromRange(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+
 
 function reDraw(){
   drawChar();
@@ -157,15 +192,3 @@ function reDraw(){
 function collisionDetect() {
 
 }
-
-// generic way to set animation up
-window.requestAnimFrame = (function () {
-  return window.requestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    window.oRequestAnimationFrame ||
-    window.msRequestAnimationFrame ||
-    function (callback) {
-      window.setTimeout(callback, 1000 / 60);
-    };
-})();

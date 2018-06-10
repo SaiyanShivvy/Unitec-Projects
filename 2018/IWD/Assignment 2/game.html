@@ -17,20 +17,25 @@
 
 <body>
 
-  <div class="row">
-    <div class="col-lg">
+<div class="row">
+    <div class="col-lg-1">
       <div id="canvasDiv">
         <canvas id="gameCanvas" width="800px" height="600px" style="background: url('./src/assets/sky.jpg')"></canvas>
         <script type="text/javascript" src="game.js"></script>
       </div>
-      <div class="col-sm">
-          <input type="button" value="Start" id="btnGameStart" onclick="init()" />
+    </div>
+    <div class="col-sm text-center">
+<div class="container">
+        <p>Time:
+          <span id="time">00:00</span>
+        </p>
+        <p>Score:
+          <span id="score">0</span>
+        </p>
+        <input type="button" class="btn btn-outline-primary btn-lg" value="Start" id="btnGameStart" onclick="init()" />
       </div>
     </div>
   </div>
-
-
-
 
   <!-- Bootstrap 4 JS Files, PopperJS and JQuery-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
