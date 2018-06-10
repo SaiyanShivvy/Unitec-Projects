@@ -215,7 +215,7 @@ function createSeed() {
 function collected(arr, item) {
   for (var i = 0; i < seedArray.length; i++) {
     if (seedArray[i] == item) {
-      arr.pop();
+      arr.shift(); //seems to work best
     }
   }
 }
