@@ -1,6 +1,9 @@
 //Canvas Variables
 var canvas = document.getElementById("gameCanvas");
 var ctx = canvas.getContext("2d");
+//Timer for Animations
+var now, delta;
+var then = performance.now();
 //------------------------------------------------------------//
 //Game Variables
 var gameOver = false;
@@ -13,6 +16,7 @@ var player = {
   speed: 5,
   velX: 0,
   velY: 0,
+  //boundCircle: 20,
   pressedKeys: {
     left: false,
     right: false,
@@ -20,7 +24,8 @@ var player = {
     down: false
   }
 }
-var srcX = 0, srcY = 0;
+var srcX = 0,
+  srcY = 0;
 //------------------------------------------------------------//
 var grass_Image = new Image();
 grass_Image.src = "src/assets/sample_grass.png";
@@ -32,33 +37,23 @@ var player_Image = new Image();
 player_Image.src = "src/assets/player_bird_ss.png";
 //------------------------------------------------------------//
 function drawGrass() {
-  ctx.drawImage(grass_Image, 0, 450, canvas.width, canvas.height / 3);
+  ctx.drawImage(grass_Image, 0, 450, canvas.width, canvas.height / 2);
 }
 
 function drawChar() {
-  ctx.drawImage(player_Image, srcX, srcY, 927, 633, player.x, player.y, player.width, player.height);
-  srcX += 927;
-  if (srcX >= 7416) {
-    srcX = 0;
-  }
+  // ctx.drawImage(player_Image, srcX, srcY, 927, 633, player.x, player.y, player.width, player.height);
+  // srcX += 927;
+  // if (srcX >= 7416) {
+  //   srcX = 0;
+  // }
+  ctx.fillRect(player.x, player.y, player.width, player.height);
 }
 //------------------------------------------------------------//
 //Utility functions
-// generic way to set animation up
-window.requestAnimFrame = (function () {
-  return window.requestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    window.oRequestAnimationFrame ||
-    window.msRequestAnimationFrame ||
-    function (callback) {
-      window.setTimeout(callback, 1000 / 60);
-    };
-})();
-
 function randomIntFromRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
 //Key Handlers
 var keyMap = {
   68: 'right',
@@ -89,14 +84,14 @@ function Seed(x, y, dy, radius, color) {
   this.color = color;
 
   var growth = 0.25;
-  var rg = ctx.createRadialGradient(x + dy, y + dy, radius, x + dy, y + dy, 24);  
+  var rg = ctx.createRadialGradient(x, y, radius, x, y, 24);
   rg.addColorStop(growth, 'green');
 
 
-  this.update = function() {
+  this.update = function () {
     // Check if its off the canvas
     if (this.y + this.radius + this.dy <= canvas.height) {
-      this.dy = -1.4; //this.dy -= 2;
+      this.dy = -2.4; //this.dy -= 2;
       if (this.y + this.radius + this.dy <= 0) {
         console.log("reached top");
         seedArray.shift();
@@ -120,7 +115,7 @@ function Seed(x, y, dy, radius, color) {
     this.draw();
   }
 
-  this.draw = function() {;
+  this.draw = function () {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
     ctx.fillStyle = rg; //radial gradient here
@@ -129,7 +124,7 @@ function Seed(x, y, dy, radius, color) {
   }
 }
 
-function playerUpdate(){
+function playerUpdate() {
   var dM = 5;
   if (player.pressedKeys.left) {
     player.x -= dM;
@@ -157,60 +152,74 @@ function playerUpdate(){
   }
 }
 //------------------------------------------------------------//
-//for time based animation
-var now, delta;
-// High resolution timer
-var then = performance.now();
 //Implementation
 var seed;
 var seedArray = [];
-var maxSeeds = 3; //testing
-
-function init() {
-  console.log("Game Init'd");
-  animate();
-}
+var maxSeeds = 2; //testing
+var score = 0;
+var interval = 1000/30;
 
 function createSeed() {
-  seed = new Seed(randomIntFromRange(50, 750), randomIntFromRange(500, 550), 0, 6, '30');
-  seedArray.push(seed);
-  //console.log(seed);
+  if (seedArray.length < maxSeeds) {
+    seed = new Seed(randomIntFromRange(50, 1230), randomIntFromRange(550, 680), 0, 6, '30');
+    seedArray.push(seed);
+  }
 }
 
-//
 function animate() {
-  // Measure time, with high resolution timer
-  now = performance.now();
-  // How long between the current frame and the previous one ?
-  delta = now - then;
-  //console.log(delta);
-  
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  reDraw();
-
-  if(seedArray.length < maxSeeds){
-    createSeed();
-  }
-
-  playerUpdate();
-
-  for (var i = 0; i < seedArray.length; i++) {
-    seedArray[i].update();
-  }
-
-  // Store time
-  then = now;
-
   requestAnimationFrame(animate);
+  //Measure Time
+  now = performance.now();
+  delta = now - then;
+  //Clear Canvas and redraw
+  if (delta > interval){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    reDraw();
+    createSeed();
+    playerUpdate();
+    for (var i = 0; i < seedArray.length; i++) {
+      var seed = seedArray[i];
+      seed.update();
+    }
+    if (isColliding(player, seed)) {
+      console.log("Collided")
+      seedArray.shift();
+    }
+  }
+  //Store Time
+  then = now - (delta % interval);
 }
 
-
-
-function reDraw(){
-  drawChar();
+function reDraw() {
   drawGrass();
+  drawChar();
 }
 
-function collisionDetect() {
+function isColliding(objRect, objCircle) {
+  var distX = Math.abs(objCircle.x - (objRect.x - objRect.w / 2));
+  var distY = Math.abs(objCircle.y - (objRect.y - objRect.h / 2));
 
+  if (distX <= (objRect.w / 2)) {
+    console.log("Done");
+    return true;
+  }
+  if (distY <= (objRect.h / 2)) {
+    console.log("Done");
+    return true;
+  }
+  if (distX > (objRect.w / 2 + objCircle.radius)) {
+    return false;
+  }
+  if (distY > (objRect.w / 2 + objCircle.radius)) {
+    return false;
+  }
+  var dx = distX - objRect.w / 2;
+  var dy = distY - objRect.h / 2;
+
+  return (dx * dx + dy * dy <= (objCircle.radius * objCircle.radius));
+}
+
+function init() {
+  console.log("Game Start");
+  animate();
 }
