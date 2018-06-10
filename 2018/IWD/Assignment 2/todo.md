@@ -2,24 +2,24 @@
 
 - Part 1
   - [x] UI Sprucing
-   - [ ] Needs further attention, in booking section.
+   - [x] Needs further attention, in booking section. {Not sure how to fix any other issues}
   - [x] Persistent Storage for Temp Booking?
    - [x] Temp storage, rewrting data to array, refresh table is next if possible.
-  - [ ] Wordpress server bs
+  - [x] Wordpress Stuff {Wasn't Sure}
 - Part 2
-  - [ ] Basic Stuff
-  - [ ] Character Controls
+  - [x] Basic Stuff
+  - [x] Character Controls
   - [x] Seed Spawning
-    - [ ] Need support for multiple seed spawning, and recreating a new seed when one is eaten or goes off screen.
-  - [ ] Radiant Gradient for Colour Change
+    - [x] Need support for multiple seed spawning, and recreating a new seed when one is eaten or goes off screen.
+  - [x] Radiant Gradient for Colour Change {Semi-done}
   - [x] 6px to 24px transform
     - [ ] Refactoring need for this task, does however grow then move, may need a timer
-  - [ ] Collision
-  - [ ] Sound
-  - [ ] Sprite Animation?
+  - [x] Collision
+  - [x] Sound
+  - [x] Sprite Animation {Could be Better}
 
 
 Currently fixing:
-  - [ ] Speed issue when creating new seeds
-  - [ ] staggered spawning
-  - [ ] framerate issue
+  - [x] Speed issue when creating new seeds
+  - [SCRAPPED] staggered spawning
+  - [x] framerate issue

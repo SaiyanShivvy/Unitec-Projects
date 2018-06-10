@@ -41,12 +41,12 @@ function drawGrass() {
 }
 
 function drawChar() {
-  // ctx.drawImage(player_Image, srcX, srcY, 927, 633, player.x, player.y, player.width, player.height);
-  // srcX += 927;
-  // if (srcX >= 7416) {
-  //   srcX = 0;
-  // }
-  ctx.fillRect(player.x, player.y, player.width, player.height);
+  ctx.drawImage(player_Image, srcX, srcY, 927, 633, player.x, player.y, player.width, player.height);
+  srcX += 927;
+  if (srcX >= 7416) {
+    srcX = 0;
+  }
+  // ctx.fillRect(player.x, player.y, player.width, player.height);
 }
 //------------------------------------------------------------//
 //Utility functions
@@ -161,7 +161,6 @@ function Seed(x, y, dy, radius, color) {
     }
     this.draw();
   }
-
   this.draw = function () {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
@@ -213,6 +212,14 @@ function createSeed() {
   }
 }
 
+function collected(arr, item) {
+  for (var i = 0; i < seedArray.length; i++) {
+    if (seedArray[i] == item) {
+      arr.pop();
+    }
+  }
+}
+
 function animate() {
   if (gameOver) {
     console.log("gameover");
@@ -235,8 +242,9 @@ function animate() {
           //console.log("Collided")
           score++;
           document.getElementById('score').innerText = score;
-          seedArray.shift(seed);
+          collected(seedArray, seed);
           collect_item.play();
+          break;
         }
       }
     }
