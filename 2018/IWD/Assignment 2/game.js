@@ -75,6 +75,54 @@ function keyup(event) {
 window.addEventListener("keydown", keydown, false)
 window.addEventListener("keyup", keyup, false)
 //------------------------------------------------------------//
+//Audio Control and Sound Effects
+var press_start = new Audio("src/assets/start_sound.wav");
+var collect_item = new Audio("src/assets/item_collect.wav");
+var miss_item = new Audio("src/assets/item_miss.wav");
+var game_over = new Audio("src/assets/game_over.wav");
+
+// Try to mute all audio elements on the page
+function mutePage() {
+  var audios = document.querySelectorAll("audio");
+  [].forEach.call(audios, function (audio) {
+    muteMe(audio);
+  });
+}
+//Time
+function startTimer() {
+  var presentTime = document.getElementById('time').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if (s == 59) {
+    m = m - 1;
+  }
+  if (m < 0) {
+    game_over.play();
+    alert("Time's Up! Your Score was: " + score);
+    gameOver = true;
+    clearCanvas();
+    stopTimer();
+
+  }
+  document.getElementById('time').innerHTML = m + ":" + s;
+  var timer = setTimeout(startTimer, 1000);
+}
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {
+    sec = "0" + sec
+  } // add zero in front of numbers < 10
+  if (sec < 0) {
+    sec = "59"
+  }
+  return sec;
+}
+
+function stopTimer() {
+  clearTimeout(timer);
+}
+//------------------------------------------------------------//
 //Object - Circle
 function Seed(x, y, dy, radius, color) {
   this.x = x;
@@ -94,11 +142,10 @@ function Seed(x, y, dy, radius, color) {
       this.dy = -2.4; //this.dy -= 2;
       if (this.y + this.radius + this.dy <= 0) {
         console.log("reached top");
+        miss_item.play();
         seedArray.shift();
-        console.log(seedArray);
-        if (seedArray.length < 1) {
-          animate();
-        }
+        //console.log(seedArray);
+        requestAnimationFrame(animate);
       }
     }
     //check if its 'fully grown'
@@ -157,7 +204,7 @@ var seed;
 var seedArray = [];
 var maxSeeds = 2; //testing
 var score = 0;
-var interval = 1000/30;
+var interval = 1000 / 60;
 
 function createSeed() {
   if (seedArray.length < maxSeeds) {
@@ -167,27 +214,35 @@ function createSeed() {
 }
 
 function animate() {
-  requestAnimationFrame(animate);
-  //Measure Time
-  now = performance.now();
-  delta = now - then;
-  //Clear Canvas and redraw
-  if (delta > interval){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    reDraw();
-    createSeed();
-    playerUpdate();
-    for (var i = 0; i < seedArray.length; i++) {
-      var seed = seedArray[i];
-      seed.update();
+  if (gameOver) {
+    console.log("gameover");
+    clearCanvas();
+  } else {
+    requestAnimationFrame(animate);
+    //Measure Time
+    now = performance.now();
+    delta = now - then;
+    //Clear Canvas and redraw
+    if (delta > interval) {
+      clearCanvas();
+      reDraw();
+      createSeed();
+      playerUpdate();
+      for (var i = 0; i < seedArray.length; i++) {
+        var seed = seedArray[i];
+        seed.update();
+        if (isColliding(player, seed)) {
+          //console.log("Collided")
+          score++;
+          document.getElementById('score').innerText = score;
+          seedArray.shift(seed);
+          collect_item.play();
+        }
+      }
     }
-    if (isColliding(player, seed)) {
-      console.log("Collided")
-      seedArray.shift();
-    }
+    //Store Time
+    then = now - (delta % interval);
   }
-  //Store Time
-  then = now - (delta % interval);
 }
 
 function reDraw() {
@@ -195,31 +250,48 @@ function reDraw() {
   drawChar();
 }
 
-function isColliding(objRect, objCircle) {
-  var distX = Math.abs(objCircle.x - (objRect.x - objRect.w / 2));
-  var distY = Math.abs(objCircle.y - (objRect.y - objRect.h / 2));
+function clearCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 
-  if (distX <= (objRect.w / 2)) {
-    console.log("Done");
+function isColliding(rect, circle) {
+  if (circle.x + circle.radius > rect.x &&
+    circle.x - circle.radius < (rect.x + rect.width) &&
+    circle.y + circle.radius > rect.y &&
+    circle.y - circle.radius < (rect.y + rect.height)) {
     return true;
   }
-  if (distY <= (objRect.h / 2)) {
-    console.log("Done");
-    return true;
-  }
-  if (distX > (objRect.w / 2 + objCircle.radius)) {
-    return false;
-  }
-  if (distY > (objRect.w / 2 + objCircle.radius)) {
-    return false;
-  }
-  var dx = distX - objRect.w / 2;
-  var dy = distY - objRect.h / 2;
+}
 
-  return (dx * dx + dy * dy <= (objCircle.radius * objCircle.radius));
+function reset() {
+  player.x = 0;
+  seedArray.length = 0;
+  clearCanvas();
 }
 
 function init() {
+  reset();
   console.log("Game Start");
-  animate();
+  document.getElementById('score').innerText = score;
+  document.getElementById('time').innerHTML = 07 + ":" + 00;
+  gameOver = false;
+  score = 0;
+  startTimer();
+  requestAnimationFrame(animate);
+}
+
+function mute() {
+  press_start.muted = false;
+  collect_item.muted = false;
+  miss_item.muted = false;
+  game_over.muted = false;
+  console.log("Muted Audio");
+}
+
+function unmute() {
+  press_start.muted = true;
+  collect_item.muted = true;
+  miss_item.muted = true;
+  game_over.muted = true;
+  console.log("Unmuted Audio");
 }

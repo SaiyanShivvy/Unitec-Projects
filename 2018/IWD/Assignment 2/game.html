@@ -18,14 +18,13 @@
 <body>
 
   <div class="row">
-    <div class="col-lg ">
-      <div id="canvasDiv">
-        <canvas id="gameCanvas" width="1280px" height="720px" style="background: url('./src/assets/sky.jpg')"></canvas>
-        <script type="text/javascript" src="game.js"></script>
-      </div>
+
+    <div id="canvasDiv">
+      <canvas id="gameCanvas" width="1280px" height="720px" style="background: url('./src/assets/sky.jpg')"></canvas>
+      <script type="text/javascript" src="game.js"></script>
     </div>
     <div class="col-sm text-center">
-      <div class="container">
+      <div class="container float-right">
         <p>Time:
           <span id="time">00:00</span>
         </p>
@@ -33,6 +32,9 @@
           <span id="score">0</span>
         </p>
         <input type="button" class="btn btn-outline-primary btn-lg" value="Start" id="btnGameStart" onclick="init()" />
+        <br><br>
+        <input type="button" class="btn btn-outline-primary btn-lg" value="Mute" id="btnMute" onclick="mute()" />
+        <input type="button" class="btn btn-outline-primary btn-lg" value="Unmute" id="btnUnmute" onclick="unmute()" />
       </div>
     </div>
   </div>
