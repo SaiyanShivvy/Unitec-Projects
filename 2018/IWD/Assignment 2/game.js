@@ -129,11 +129,31 @@ function Seed(x, y, dy, radius, color) {
   }
 }
 
-function player(){
-  //redraw, cycle through animation frames, movement, collision detection.
-  this.updateFrame = function() {
+function playerUpdate(){
+  var dM = 5;
+  if (player.pressedKeys.left) {
+    player.x -= dM;
   }
-  this.draw = function(){
+  if (player.pressedKeys.right) {
+    player.x += dM;
+  }
+  if (player.pressedKeys.up) {
+    player.y -= dM;
+  }
+  if (player.pressedKeys.down) {
+    player.y += dM;
+  }
+
+  // Flip position at boundaries
+  if (player.x > canvas.width) {
+    player.x -= canvas.width
+  } else if (player.x < 0) {
+    player.x += canvas.width
+  }
+  if (player.y > canvas.height) {
+    player.y -= canvas.height
+  } else if (player.y < 0) {
+    player.y += canvas.height
   }
 }
 //------------------------------------------------------------//
@@ -171,6 +191,8 @@ function animate() {
   if(seedArray.length < maxSeeds){
     createSeed();
   }
+
+  playerUpdate();
 
   for (var i = 0; i < seedArray.length; i++) {
     seedArray[i].update();
