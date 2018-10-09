@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auktra_user_api_key" templateMergeStrategy="preserve" translatable="false">68a15e63718641f98ec46338b6a8a2f7</string>
+    <string name="tm_user_api_key" templateMergeStrategy="preserve" translatable="false">NhugiGkJvGLxZLNkswVPeV9QnErpVs6a</string>
+    <string name="zomato_user_key" templateMergeStrategy="preserve" translatable="false">f0b4a7778da1c637de2c6c1eced2e847</string>
+</resources>
