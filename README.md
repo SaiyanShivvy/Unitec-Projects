@@ -1,18 +1,14 @@
 # Unitec Projects Repo
 
-## Intro
+This repo is to serve as a backup of all project/assignments completed at Unitec while doing my Bachelor of Computer Systems Degree.
 
-This Repo contains source code from assignment I completed at Unitec for my Bachelor's Degree.
-Some projects have their own repo.
+It contains all source code for programming related courses.
 
 ### Notes
 
-This doesn't have any assignments from Year 1 (2016), as I wasn't really used to using GitHub or BitBucket at the time.
+- This repo aim's to only contain projects were all code is of mine and if there are other contributor's it will be noted.
+- There are some missing code for projects I wasn't able to retain the code for. 
 
-### Extra Links
+### Social Links
 
 - [Linkedin](https://nz.linkedin.com/in/shivneel-achari-188573170)
-
-### Additional Tasks
-
-Creating a seperate git repo for each project so it's better documented and easier to access, and this would act as a hub or house uncatergorized project.
